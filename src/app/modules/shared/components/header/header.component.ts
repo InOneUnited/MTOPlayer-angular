@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'mto-header',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./header.component.scss']
   })
   export class HeaderComponent {
-    title = 'angular';
+    @Input() isLoggedIn = false;
+    @Input() title = '';
+    @Input() userPicture = 'assets/img/profile_picture.jpg';
   }
   

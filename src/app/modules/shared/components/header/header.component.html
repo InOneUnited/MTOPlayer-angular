@@ -1,0 +1,12 @@
+<div class="header">
+  <img class="header-logo" src="assets/img/logo.png" />
+  <div *ngIf="isLoggedIn" class="header-title">{{ title }}</div>
+  <div *ngIf="!isLoggedIn; else login">
+    <div class="header-register">Register</div>
+    <div class="header-login">Login</div>
+  </div>
+  <ng-template #login>
+    <img class="header-picture" src="{userPicture}" />
+    <div class="header-logout">Logout</div>
+  </ng-template>
+</div>
