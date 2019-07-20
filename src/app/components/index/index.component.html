@@ -6,14 +6,18 @@
       <div>Sign Up</div>
     </div>
   </div>
-  <ngb-carousel class="index-carousel" *ngIf="images">
+  <ngb-carousel
+    class="index-carousel"
+    *ngIf="images"
+    [showNavigationArrows]="false"
+  >
     <ng-template ngbSlide *ngFor="let image of images; index as i">
       <img
         [src]="images[i]"
         alt="Random first slide"
         class="index-carousel-picture"
       />
-      <div class="carousel-caption d-none d-block">
+      <div class="carousel-caption">
         <h3>{{ imageDescriptions[i].label }}</h3>
         <p>{{ imageDescriptions[i].description }}</p>
       </div>

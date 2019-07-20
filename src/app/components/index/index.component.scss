@@ -7,5 +7,12 @@
       max-height: 40em;
       object-fit: cover;
     }
+    .carousel-caption {
+      display: grid;
+      height: 100%;
+      h3 {
+        align-self: self-end;
+      }
+    }
   }
 }
