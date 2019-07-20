@@ -1,33 +1,39 @@
-<div>
-  <div class="logo">this is logo</div>
-  <div class="options">
-    <div>Log In</div>
-    <div>Sign Up</div>
-  </div>
-</div>
-<ngb-carousel class="index-carousel" *ngIf="images">
-  <ng-template ngbSlide *ngFor="let image of images; index as i">
-    <img [src]="images[i]" alt="Random first slide" />
-    <div class="carousel-caption d-none d-block">
-      <h3>{{ imageDescriptions[i].label }}</h3>
-      <p>{{ imageDescriptions[i].description }}</p>
+<div class="index">
+  <div>
+    <div class="logo">this is logo</div>
+    <div class="options">
+      <div>Log In</div>
+      <div>Sign Up</div>
     </div>
-  </ng-template>
-</ngb-carousel>
-<footer>
-  <table mdbTable borderless="true">
-    <thead>
-      <tr>
-        <th *ngFor="let head of headElements" scope="col">{{ head }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr mdbTableCol *ngFor="let el of elements">
-        <th scope="row">{{ el.id }}</th>
-        <td>{{ el.first }}</td>
-        <td>{{ el.last }}</td>
-        <td>{{ el.handle }}</td>
-      </tr>
-    </tbody>
-  </table>
-</footer>
+  </div>
+  <ngb-carousel class="index-carousel" *ngIf="images">
+    <ng-template ngbSlide *ngFor="let image of images; index as i">
+      <img
+        [src]="images[i]"
+        alt="Random first slide"
+        class="index-carousel-picture"
+      />
+      <div class="carousel-caption d-none d-block">
+        <h3>{{ imageDescriptions[i].label }}</h3>
+        <p>{{ imageDescriptions[i].description }}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  <footer>
+    <table mdbTable borderless="true">
+      <thead>
+        <tr>
+          <th *ngFor="let head of headElements" scope="col">{{ head }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let el of elements">
+          <th scope="row">{{ el.id }}</th>
+          <td>{{ el.first }}</td>
+          <td>{{ el.last }}</td>
+          <td>{{ el.handle }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </footer>
+</div>
