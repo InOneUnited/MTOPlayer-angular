@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   })
   export class HeaderComponent {
     @Input() isLoggedIn = false;
-    @Input() title = '';
+    @Input() title = 'Example Title';
     @Input() userPicture = 'assets/img/profile_picture.jpg';
   }
   

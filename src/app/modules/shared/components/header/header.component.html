@@ -1,12 +1,20 @@
-<div class="header">
-  <img class="header-logo" src="assets/img/logo.png" />
-  <div *ngIf="isLoggedIn" class="header-title">{{ title }}</div>
-  <div *ngIf="!isLoggedIn; else login">
-    <div class="header-register">Register</div>
-    <div class="header-login">Login</div>
+<div class="mto-header">
+  <div class="mto-header-logo">
+    <img
+      class="mto-header-logo-picture"
+      src="assets/img/logo-without-name.png"
+    />
+    <span class="mto-header-logo-text">MTO Player</span>
   </div>
-  <ng-template #login>
-    <img class="header-picture" src="{userPicture}" />
-    <div class="header-logout">Logout</div>
+  <div *ngIf="isLoggedIn" class="mto-header-title">{{ title }}</div>
+  <div *ngIf="!isLoggedIn; else logged" class="mto-header-options">
+    <div class="mto-header-options-first">Register</div>
+    <div class="mto-header-options-second">Login</div>
+  </div>
+  <ng-template #logged>
+    <div class="mto-header-options">
+      <img class="mto-header-options-first picture" [src]="userPicture" />
+      <div class="mto-header-options-second">Logout</div>
+    </div>
   </ng-template>
 </div>

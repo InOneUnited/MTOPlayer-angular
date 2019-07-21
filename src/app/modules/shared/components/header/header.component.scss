@@ -1,0 +1,62 @@
+@import 'mto-variables.scss';
+
+.mto-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 50px;
+  background-color: $mto-violet;
+
+  &-logo {
+    height: 100%;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 0.5rem;
+    padding-left: 1rem;
+
+    &-picture {
+      height: 90%;
+      justify-self: center;
+      align-self: center;
+      background-color: currentColor;
+      border-radius: 50%;
+    }
+
+    &-text {
+      align-self: center;
+      @include font-24;
+      color: $mto-white;
+    }
+  }
+
+  &-title {
+    align-self: center;
+    justify-self: center;
+    @include font-bold-28;
+    color: $mto-white;
+  }
+
+  &-options {
+    height: 100%;
+    grid-column-start: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    color: $mto-white;
+    @include font-light-21;
+
+    &-first {
+      grid-column-start: 2;
+      justify-self: end;
+    }
+
+    &-second {
+      justify-self: center;
+    }
+  }
+}
+
+.picture {
+  height: 80%;
+  border-radius: 50%;
+  border: 2px solid green;
+}
