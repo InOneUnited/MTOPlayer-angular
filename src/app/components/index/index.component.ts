@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "mto-index",
   templateUrl: "./index.component.html",
   styleUrls: ["./index.component.scss"]
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent {
   constructor() {}
 
   elements: any = [
@@ -34,6 +34,4 @@ export class IndexComponent implements OnInit {
         "Praesent commodo cursus magna, vel scelerisque nisl consectetur."
     }
   ];
-
-  ngOnInit() {}
 }
