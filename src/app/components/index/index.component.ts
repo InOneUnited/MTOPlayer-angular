@@ -1,24 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'mto-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  selector: "mto-index",
+  templateUrl: "./index.component.html",
+  styleUrls: ["./index.component.scss"]
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent {
   constructor() {}
 
   elements: any = [
-    { id: 1, first: 'Mark', last: 'Otto', handle: '@mdo' },
-    { id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat' },
-    { id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter' }
+    { id: 1, first: "Mark", last: "Otto", handle: "@mdo" },
+    { id: 2, first: "Jacob", last: "Thornton", handle: "@fat" },
+    { id: 3, first: "Larry", last: "the Bird", handle: "@twitter" }
   ];
 
-  headElements = ['ID', 'First', 'Last', 'Handle'];
+  headElements = ["ID", "First", "Last", "Handle"];
 
-  images = [1, 2, 3].map(
-    () => `https://picsum.photos/900/500?random&t=${Math.random()}`
-  );
-
-  ngOnInit() {}
+  images = [1, 2, 3].map(() => "assets/img/back.jpg");
+  imageDescriptions = [
+    {
+      label: "First slide label",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. " +
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. "
+    },
+    {
+      label: "Second slide label",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      label: "Third slide label",
+      description:
+        "Praesent commodo cursus magna, vel scelerisque nisl consectetur."
+    }
+  ];
 }
