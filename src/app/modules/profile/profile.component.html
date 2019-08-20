@@ -8,9 +8,9 @@
     </div>
     <div class="profile-body-content">
       <ng-container [ngSwitch]="choosenOption">
-        <div *ngSwitchCase="'data'">Data</div>
-        <div *ngSwitchCase="'password'">Password</div>
-        <div *ngSwitchCase="'apps'">Connected Apps</div>
+        <mto-data *ngSwitchCase="'data'">Data</mto-data>
+        <mto-password *ngSwitchCase="'password'">Password</mto-password>
+        <mto-apps *ngSwitchCase="'apps'">Connected Apps</mto-apps>
       </ng-container>
     </div>
   </div>
