@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './modules/shared/services/guards/auth.guard';
-import { SettingsRoutes } from './modules/profile/profile-routing.module';
+import { ProfileRoutes } from './modules/profile/profile-routing.module';
 import { MusicRoutes } from './modules/library/library-routing.module';
 import { UnsavedChangesGuard } from './modules/shared/services/guards/unsaved-changes.guard';
 
@@ -13,8 +13,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'settings',
-    children: SettingsRoutes,
+    path: 'profile',
+    children: ProfileRoutes,
     canActivate: [AuthGuard],
     canDeactivate: [UnsavedChangesGuard]
   },
