@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'mto-index-footer',
-  templateUrl: './index-footer.component.html',
-  styleUrls: ['./index-footer.component.scss']
+  selector: "mto-index-footer",
+  templateUrl: "./index-footer.component.html",
+  styleUrls: ["./index-footer.component.scss"]
 })
-export class IndexFooterComponent implements OnInit {
+export class IndexFooterComponent {
+  constructor() {}
 
-  constructor() { }
+  elements: any = [
+    { id: 1, first: "Mark", last: "Otto", handle: "@mdo" },
+    { id: 2, first: "Jacob", last: "Thornton", handle: "@fat" },
+    { id: 3, first: "Larry", last: "the Bird", handle: "@twitter" }
+  ];
 
-  ngOnInit() {
-  }
-
+  headElements = ["ID", "First", "Last", "Handle"];
 }
