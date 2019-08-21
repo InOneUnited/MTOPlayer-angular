@@ -1,0 +1,24 @@
+@import 'mto-variables.scss';
+
+.profile {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  height: 100%;
+
+  &-body {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+
+    &-menu {
+      display: grid;
+      grid-template-rows: max-content max-content max-content;
+      background-color: $mto-dark-violet;
+
+      &-option {
+        padding: 1rem;
+        color: $mto-white;
+        border-bottom: 1px solid grey;
+      }
+    }
+  }
+}
