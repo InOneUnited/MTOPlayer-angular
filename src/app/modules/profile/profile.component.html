@@ -2,12 +2,30 @@
   <mto-header [title]="'Profile'"></mto-header>
   <div class="profile-body">
     <div class="profile-body-menu">
-      <div class="profile-body-menu-option">Data</div>
-      <div class="profile-body-menu-option">Password</div>
-      <div class="profile-body-menu-option">Connected Apps</div>
+      <div
+        class="profile-body-menu-option"
+        (click)="onClick('data')"
+        [ngClass]="{ active: chosenOption === 'data' }"
+      >
+        Data
+      </div>
+      <div
+        class="profile-body-menu-option"
+        (click)="onClick('password')"
+        [ngClass]="{ active: chosenOption === 'password' }"
+      >
+        Password
+      </div>
+      <div
+        class="profile-body-menu-option"
+        (click)="onClick('apps')"
+        [ngClass]="{ active: chosenOption === 'apps' }"
+      >
+        Connected Apps
+      </div>
     </div>
     <div class="profile-body-content">
-      <ng-container [ngSwitch]="choosenOption">
+      <ng-container [ngSwitch]="chosenOption">
         <mto-data *ngSwitchCase="'data'">Data</mto-data>
         <mto-password *ngSwitchCase="'password'">Password</mto-password>
         <mto-apps *ngSwitchCase="'apps'">Connected Apps</mto-apps>

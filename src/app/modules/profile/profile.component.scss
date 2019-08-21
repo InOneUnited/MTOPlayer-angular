@@ -13,12 +13,23 @@
       display: grid;
       grid-template-rows: max-content max-content max-content;
       background-color: $mto-dark-violet;
+      @include font-light-21;
 
       &-option {
         padding: 1rem;
         color: $mto-white;
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid $mto-grey;
+        border-right: 1px solid $mto-grey;
+        min-height: 65px;
+
+        &:hover {
+          background-color: $mto-dirty-pink;
+        }
       }
     }
   }
+}
+
+.active {
+  background-color: $mto-cream;
 }

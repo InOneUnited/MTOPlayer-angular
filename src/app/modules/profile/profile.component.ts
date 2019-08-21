@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-  choosenOption = 'data';
+  chosenOption = 'data';
+
+  onClick(option: string) {
+    this.chosenOption = option;
+  }
 }
