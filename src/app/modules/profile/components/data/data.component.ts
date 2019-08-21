@@ -7,9 +7,14 @@ import { FormGroup } from '@angular/forms';
 })
 export class DataComponent implements OnInit {
   form: FormGroup;
+  userPicture: string;
 
   ngOnInit() {
     this.form = new FormGroup({});
+  }
+
+  onFileSelected(event) {
+    console.log(event);
   }
 
   onSave() {}

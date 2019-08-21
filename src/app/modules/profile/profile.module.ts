@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 // import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '../shared/shared.module';
@@ -16,7 +18,9 @@ import { ProfileComponent } from './profile.component';
     SharedModule,
     ProfileRoutingModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule
     // StoreModule.forFeature('profile', profileReducers),
     // EffectsModule.forFeature([])
   ],
@@ -28,7 +32,7 @@ import { ProfileComponent } from './profile.component';
   ],
   entryComponents: [],
   providers: [],
-  exports: [MatInputModule]
+  exports: []
 })
 export class ProfileModule {
   static forRoot(): ModuleWithProviders {
