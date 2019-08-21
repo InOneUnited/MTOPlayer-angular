@@ -1,0 +1,40 @@
+@import 'mto-variables.scss';
+
+.profile {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  height: 100%;
+
+  &-body {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+
+    &-menu {
+      display: grid;
+      grid-template-rows: max-content max-content max-content;
+      background-color: $mto-dark-violet;
+      @include font-21;
+
+      :first-child {
+        border-top: 1px solid $mto-grey;
+      }
+
+      &-option {
+        padding: 1rem;
+        color: $mto-white;
+        border-bottom: 1px solid $mto-grey;
+        border-right: 1px solid $mto-grey;
+        min-height: 65px;
+
+        &:hover {
+          background-color: $mto-dirty-pink;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  background-color: $mto-cream;
+  color: $mto-dark-violet;
+}
