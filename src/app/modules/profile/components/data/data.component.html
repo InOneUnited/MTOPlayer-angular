@@ -1,1 +1,26 @@
-<div>HELLO I'M DATA COMPONENT</div>
+<div class="profile-data">
+  <div class="profile-data-picture"></div>
+  <div class="profile-data-form">
+    <form [formGroup]="form" novalidate>
+      <mat-form-field class="profile-data-form-login">
+        <input matInput placeholder="Login" />
+      </mat-form-field>
+      <mat-form-field class="profile-data-form-first-name">
+        <input matInput placeholder="First Name" />
+      </mat-form-field>
+      <mat-form-field class="profile-data-form-last-name">
+        <input matInput placeholder="Last Name" />
+      </mat-form-field>
+      <mat-form-field class="profile-data-form-gender">
+        <input matInput placeholder="Gender" />
+      </mat-form-field>
+      <mat-form-field class="profile-data-form-birthday">
+        <input matInput placeholder="Birthday" />
+      </mat-form-field>
+      <div>Join Date</div>
+    </form>
+    <button type="submit" [disabled]="form.invalid" (click)="onSave()">
+      Sign up
+    </button>
+  </div>
+</div>
