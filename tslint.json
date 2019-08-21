@@ -1,6 +1,7 @@
 {
-  "extends": ["tslint:latest", "tslint-config-prettier", "tslint:recommended"],
-  "rulesDirectory": ["codelyzer"],
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint:latest"],
+  "jsRules": {},
   "rules": {
     "array-type": false,
     "arrow-parens": false,
@@ -47,5 +48,6 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true
-  }
+  },
+  "rulesDirectory": ["codelyzer"]
 }

@@ -1,6 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProfileModule } from './modules/profile/profile.module';
 
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,10 +15,15 @@ import { SharedModule } from './modules/shared/shared.module';
   declarations: [AppComponent, IndexComponent],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     NgbModule,
     SharedModule.forRoot(),
+    ProfileModule.forRoot()
+    // StoreModule.forRoot(appReducers),
+    // EffectsModule.forRoot([AppEffects]),
   ],
   providers: [],
   entryComponents: [],
