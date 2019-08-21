@@ -13,7 +13,11 @@
       display: grid;
       grid-template-rows: max-content max-content max-content;
       background-color: $mto-dark-violet;
-      @include font-light-21;
+      @include font-21;
+
+      :first-child {
+        border-top: 1px solid $mto-grey;
+      }
 
       &-option {
         padding: 1rem;
@@ -32,4 +36,5 @@
 
 .active {
   background-color: $mto-cream;
+  color: $mto-dark-violet;
 }
