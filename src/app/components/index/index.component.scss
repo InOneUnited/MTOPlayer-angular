@@ -1,9 +1,6 @@
-@import "mto-variables.scss";
-
 .index {
   display: grid;
-  grid-template-rows: 1fr 4fr 1fr;
-  background-color: $mto-violet;
+  grid-template-rows: 1fr 4fr;
   max-height: calc(100% - 50px);
   &-carousel {
     &-picture {

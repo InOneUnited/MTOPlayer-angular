@@ -1,13 +1,14 @@
 <footer>
+  <div></div>
+  <div></div>
   <table mdbTable borderless="true">
     <thead>
-      <tr>
-        <th *ngFor="let head of headElements" scope="col">{{ head }}</th>
-      </tr>
+      <h4>
+        CONTACT US
+      </h4>
     </thead>
     <tbody>
       <tr mdbTableCol *ngFor="let el of elements">
-        <th scope="row">{{ el.id }}</th>
         <td>{{ el.first }}</td>
         <td>{{ el.last }}</td>
         <td>{{ el.handle }}</td>
