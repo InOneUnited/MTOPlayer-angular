@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+  dateValidator,
+  maxDateTodayValidator
+} from '../../../shared/utils/validators';
 @Component({
   selector: 'mto-data',
   templateUrl: './data.component.html',
@@ -27,7 +26,7 @@ export class DataComponent {
       firstName: [''],
       lastName: [''],
       gender: [''],
-      birthday: [undefined]
+      birthday: [undefined, dateValidator(), maxDateTodayValidator()]
     });
   }
 
