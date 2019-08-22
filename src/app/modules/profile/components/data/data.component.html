@@ -7,29 +7,61 @@
     />
     <input type="file" accept="image/*" (change)="onFileSelected($event)" />
   </div>
-  <div class="profile-data-form">
-    <form [formGroup]="form" novalidate>
+  <div class="profile-data-content">
+    <form class="profile-data-content-form" [formGroup]="form" novalidate>
       <mat-form-field class="profile-data-form-login">
-        <input matInput placeholder="Login" />
+        <input
+          [disabled]="true"
+          matInput
+          placeholder="Login"
+          [value]="email"
+          disabled
+        />
       </mat-form-field>
       <mat-form-field class="profile-data-form-first-name">
-        <input matInput placeholder="First Name" />
+        <input matInput placeholder="First Name" formControlName="firstName" />
       </mat-form-field>
       <mat-form-field class="profile-data-form-last-name">
-        <input matInput placeholder="Last Name" />
+        <input matInput placeholder="Last Name" formControlName="lastName" />
       </mat-form-field>
       <mat-form-field class="profile-data-form-gender">
-        <input matInput placeholder="Gender" />
+        <input matInput placeholder="Gender" formControlName="gender" />
       </mat-form-field>
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Birthday" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <input
+          matInput
+          [matDatepicker]="birthday"
+          placeholder="Birthday"
+          formControlName="birthday"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="birthday"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #birthday></mat-datepicker>
       </mat-form-field>
-      <div>Join Date</div>
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="joinDate"
+          placeholder="Join Date"
+          [value]="joinDateValue"
+          disabled
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="joinDate"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #joinDate></mat-datepicker>
+      </mat-form-field>
     </form>
-    <button type="submit" [disabled]="form.invalid" (click)="onSave()">
-      Sign up
-    </button>
   </div>
+  <button
+    class="profile-data-save"
+    type="submit"
+    [disabled]="form.invalid"
+    (click)="onSave()"
+  >
+    Save
+  </button>
 </div>
