@@ -33,6 +33,7 @@
           [matDatepicker]="birthday"
           placeholder="Birthday"
           formControlName="birthday"
+          [max]="todayDate"
         />
         <mat-datepicker-toggle
           matSuffix
@@ -40,6 +41,14 @@
         ></mat-datepicker-toggle>
         <mat-datepicker #birthday></mat-datepicker>
       </mat-form-field>
+      <ng-container *ngIf="form.controls.birthday?.invalid">
+        <mat-error
+          class="date-error"
+          *ngIf="form.controls.birthday?.errors.matDatepickerParse"
+        >
+          Date format invalid
+        </mat-error>
+      </ng-container>
       <mat-form-field>
         <input
           matInput
@@ -58,8 +67,8 @@
   </div>
   <button
     class="profile-data-save"
-    type="submit"
     [disabled]="form.invalid"
+    type="submit"
     (click)="onSave()"
   >
     Save

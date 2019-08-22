@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import {
-  dateValidator,
-  maxDateTodayValidator
-} from '../../../shared/utils/validators';
 @Component({
   selector: 'mto-data',
   templateUrl: './data.component.html',
@@ -14,6 +10,7 @@ export class DataComponent {
   form: FormGroup;
   userPicture: string;
   email = 'ddd@o2.pl';
+  todayDate = new Date();
   constructor(private fb: FormBuilder) {
     this.form = this.createFormGroup();
   }
@@ -26,7 +23,7 @@ export class DataComponent {
       firstName: [''],
       lastName: [''],
       gender: [''],
-      birthday: [undefined, dateValidator(), maxDateTodayValidator()]
+      birthday: [undefined]
     });
   }
 
