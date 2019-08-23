@@ -8,8 +8,15 @@ import { Component } from "@angular/core";
 export class IndexFooterComponent {
   constructor() {}
 
-  elements: any = [
-    { first: "Mark", last: "Otto", handle: "@mdo" },
-    { first: "Jacob", last: "Thornton", handle: "@fat" }
+  facebook: any = [
+    { link: "mat@facebook", label: "Mati Mazurczak" },
+    { link: "daro@facebook", label: "Daro Domanski" },
+    { link: "krzychu@facebook", label: "Krzychu Jodlowski" }
+  ];
+
+  emails: any = [
+    { name: "Mati", email: "mati@mati" },
+    { name: "Daro", email: "daro@daro" },
+    { name: "Krzych", email: "krzych@krzych" }
   ];
 }

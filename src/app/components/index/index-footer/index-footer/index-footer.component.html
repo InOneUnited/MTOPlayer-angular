@@ -1,17 +1,31 @@
 <footer>
-  <div></div>
-  <div></div>
-  <table mdbTable borderless="true">
+  <table mdbTable borderless="true" id="facebookTable">
+    <thead>
+      <h4>
+        FACEBOOK
+      </h4>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of facebook">
+        <td>
+          <a href="{{ el.link }}">{{ el.label }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="companyName">InOneUnited&copy; 2019</div>
+  <table mdbTable borderless="true" id="contactTable">
     <thead>
       <h4>
         CONTACT US
       </h4>
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let el of elements">
-        <td>{{ el.first }}</td>
-        <td>{{ el.last }}</td>
-        <td>{{ el.handle }}</td>
+      <tr mdbTableCol *ngFor="let el of emails">
+        <td>{{ el.name }}</td>
+        <td>
+          <a href="mailto:{{ el.email }}">{{ el.email }}</a>
+        </td>
       </tr>
     </tbody>
   </table>
