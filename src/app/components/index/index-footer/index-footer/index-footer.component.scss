@@ -6,8 +6,8 @@ footer {
   background-color: $mto-violet;
   color: $mto-white;
   height: 100%;
+  padding-top: 5%;
   table {
-    margin-top: 30%;
     tr {
       display: grid;
       grid-template-columns: 1fr 1fr 2fr;
