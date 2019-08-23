@@ -16,7 +16,7 @@ import { IndexFooterComponent } from './components/index/index-footer/index-foot
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    SharedModule.forRoot(),
+    SharedModule.forRoot()
   ],
   providers: [],
   entryComponents: [],
