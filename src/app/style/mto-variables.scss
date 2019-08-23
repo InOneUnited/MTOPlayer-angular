@@ -5,37 +5,43 @@ $mto-white: #f0eeee;
 // fonts
 
 @mixin font-bold-28 {
-  font-family: 'Lato-Bold';
+  font-family: "Lato-Bold";
   font-size: 28px;
   font-weight: 700;
 }
 
 @mixin font-bold-24 {
-  font-family: 'Lato-Regular';
+  font-family: "Lato-Regular";
   font-size: 24px;
   font-weight: 700;
 }
 
 @mixin font-24 {
-  font-family: 'Lato-Regular';
+  font-family: "Lato-Regular";
   font-size: 24px;
   font-weight: 400;
 }
 
 @mixin font-bold-21 {
-  font-family: 'Lato-Bold';
+  font-family: "Lato-Bold";
   font-size: 21px;
   font-weight: 700;
 }
 
 @mixin font-21 {
-  font-family: 'Lato-Regular';
+  font-family: "Lato-Regular";
   font-size: 21px;
   font-weight: 400;
 }
 
 @mixin font-light-21 {
-  font-family: 'Lato-Light';
+  font-family: "Lato-Light";
   font-size: 21px;
+  font-weight: 300;
+}
+
+@mixin font-light-16 {
+  font-family: "Lato-Light";
+  font-size: 16px;
   font-weight: 300;
 }

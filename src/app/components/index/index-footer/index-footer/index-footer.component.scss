@@ -12,6 +12,14 @@ footer {
     color: inherit;
   }
 
+  h4 {
+    @include font-bold-24;
+  }
+
+  td {
+    @include font-light-16;
+  }
+
   #facebookTable {
     justify-self: right;
   }
