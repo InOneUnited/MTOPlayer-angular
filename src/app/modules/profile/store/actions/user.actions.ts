@@ -2,9 +2,9 @@ import { Action } from '@ngrx/store';
 import { User } from '../../../shared/model/user';
 
 export enum UserActionTypes {
-  FETCH_USER = '[data] Fetch user',
-  FETCH_USER_SUCCESS = '[data] Fetch user success',
-  FETCH_USER_FAILURE = '[data] Fetch user failure'
+  FETCH_USER = '[user] Fetch user',
+  FETCH_USER_SUCCESS = '[user] Fetch user success',
+  FETCH_USER_FAILURE = '[user] Fetch user failure'
 }
 
 export class FetchUser implements Action {
@@ -21,8 +21,5 @@ export class FetchUserFailure implements Action {
   constructor(public failure: any) {}
 }
 
-export type UserActions =
-  | FetchUser
-  | FetchUserSuccess
-  | FetchUserFailure;
+export type UserActions = FetchUser | FetchUserSuccess | FetchUserFailure;
 //   | Logout

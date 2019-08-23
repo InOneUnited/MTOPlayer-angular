@@ -6,14 +6,14 @@ export function userReducer(
   action: UserActions
 ): UserState {
   switch (action.type) {
-    case UserActionTypes.FETCH_USER_DATA_SUCCESS: {
+    case UserActionTypes.FETCH_USER_SUCCESS: {
       return {
         ...initialUserState,
         currentUser: action.user
       };
     }
 
-    case UserActionTypes.FETCH_USER_DATA_FAILURE: {
+    case UserActionTypes.FETCH_USER_FAILURE: {
       return {
         ...state,
         operationState: 'error'
