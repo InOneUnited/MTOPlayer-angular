@@ -1,0 +1,32 @@
+<footer>
+  <table mdbTable borderless="true" class="facebookTable">
+    <thead>
+      <span>
+        FACEBOOK
+      </span>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of facebook">
+        <td>
+          <a href="{{ el.link }}">{{ el.label }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="companyName">InOneUnited&copy; 2019</div>
+  <table mdbTable borderless="true" class="contactTable">
+    <thead>
+      <span>
+        CONTACT US
+      </span>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of emails">
+        <td>{{ el.name }}</td>
+        <td>
+          <a href="mailto:{{ el.email }}">{{ el.email }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</footer>

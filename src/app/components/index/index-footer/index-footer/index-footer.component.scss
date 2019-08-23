@@ -1,0 +1,38 @@
+@import "mto-variables.scss";
+
+footer {
+  display: grid;
+  grid-template-columns: 3fr 4fr 3fr;
+  align-items: center;
+  background-color: $mto-violet;
+  color: $mto-white;
+  height: 100%;
+
+  a {
+    color: inherit;
+  }
+
+  span {
+    @include font-bold-24;
+  }
+
+  td {
+    @include font-light-16;
+  }
+
+  .facebookTable {
+    justify-self: right;
+  }
+
+  .companyName {
+    @include font-light-21;
+    justify-self: center;
+  }
+
+  .contactTable {
+    tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+    }
+  }
+}
