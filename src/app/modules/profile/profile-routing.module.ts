@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile.component';
 
-export const SettingsRoutes = [];
+export const ProfileRoutes = [{ path: '', component: ProfileComponent }];
 
 @NgModule({
   imports: [],
   exports: [RouterModule]
 })
-export class SettingsRoutingModule {}
+export class ProfileRoutingModule {}
