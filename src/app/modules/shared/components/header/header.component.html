@@ -9,7 +9,9 @@
   <div *ngIf="isLoggedIn" class="mto-header-title">{{ title }}</div>
   <div *ngIf="!isLoggedIn; else logged" class="mto-header-options">
     <div class="mto-header-options-first">Register</div>
-    <div class="mto-header-options-second">Login</div>
+    <div class="mto-header-options-second" (click)="showLoginPopUp($event)">
+      Login
+    </div>
   </div>
   <ng-template #logged>
     <div class="mto-header-options">

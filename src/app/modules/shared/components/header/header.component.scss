@@ -12,6 +12,7 @@
     grid-template-columns: min-content 1fr;
     grid-column-gap: 0.5rem;
     padding-left: 1rem;
+    cursor: pointer;
 
     &-picture {
       height: 90%;
@@ -51,6 +52,11 @@
 
     &-second {
       justify-self: center;
+    }
+
+    &-first,
+    &-second {
+      cursor: pointer;
     }
   }
 }
