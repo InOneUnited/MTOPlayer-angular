@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { IndexService } from "./services/index.service";
 
 @Component({
   selector: "mto-index",
@@ -6,24 +7,13 @@ import { Component } from "@angular/core";
   styleUrls: ["./index.component.scss"]
 })
 export class IndexComponent {
-  constructor() {}
+  private indexService: IndexService;
+  public images: string[];
+  public imageDescriptions: Object[];
 
-  images = [1, 2, 3].map(() => "assets/img/back.jpg");
-  imageDescriptions = [
-    {
-      label: "First slide label",
-      description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. " +
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis aspernatur at similique et? Incidunt, officia accusantium cum delectus earum ad fugit placeat ipsum odit harum quo voluptatem. Sit, aliquid minus. "
-    },
-    {
-      label: "Second slide label",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    {
-      label: "Third slide label",
-      description:
-        "Praesent commodo cursus magna, vel scelerisque nisl consectetur."
-    }
-  ];
+  constructor(indexService: IndexService) {
+    this.indexService = indexService;
+    this.images = this.indexService.getIndexCarouselImages();
+    this.imageDescriptions = this.indexService.getIndexCarouselImageDescriptions();
+  }
 }

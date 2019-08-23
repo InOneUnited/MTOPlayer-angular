@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { IndexService } from "../../services/index.service";
 
 @Component({
   selector: "mto-index-footer",
@@ -6,17 +7,13 @@ import { Component } from "@angular/core";
   styleUrls: ["./index-footer.component.scss"]
 })
 export class IndexFooterComponent {
-  constructor() {}
+  private indexService: IndexService;
+  public facebook: Object[];
+  public emails: Object[];
 
-  facebook: any = [
-    { link: "mat@facebook", label: "Mati Mazurczak" },
-    { link: "daro@facebook", label: "Daro Domanski" },
-    { link: "krzychu@facebook", label: "Krzychu Jodlowski" }
-  ];
-
-  emails: any = [
-    { name: "Mati", email: "mati@mati" },
-    { name: "Daro", email: "daro@daro" },
-    { name: "Krzych", email: "krzych@krzych" }
-  ];
+  constructor(indexService: IndexService) {
+    this.indexService = indexService;
+    this.facebook = this.indexService.getIndexFooterFacebookData();
+    this.emails = this.indexService.getIndexFooterEmailsData();
+  }
 }
