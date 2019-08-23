@@ -25,6 +25,7 @@ footer {
   }
 
   #companyName {
+    @include font-light-21;
     justify-self: center;
   }
 
