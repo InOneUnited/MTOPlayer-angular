@@ -15,6 +15,7 @@ import { SharedModule } from './modules/shared/shared.module';
   declarations: [AppComponent, IndexComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
