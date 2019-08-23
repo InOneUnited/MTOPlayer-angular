@@ -1,0 +1,35 @@
+<div class="profile">
+  <mto-header [isLoggedIn]="true" [title]="'Profile'"></mto-header>
+  <div class="profile-body">
+    <div class="profile-body-menu">
+      <div
+        class="profile-body-menu-option"
+        (click)="onClick('data')"
+        [ngClass]="{ active: chosenOption === 'data' }"
+      >
+        Data
+      </div>
+      <div
+        class="profile-body-menu-option"
+        (click)="onClick('password')"
+        [ngClass]="{ active: chosenOption === 'password' }"
+      >
+        Password
+      </div>
+      <div
+        class="profile-body-menu-option"
+        (click)="onClick('apps')"
+        [ngClass]="{ active: chosenOption === 'apps' }"
+      >
+        Connected Apps
+      </div>
+    </div>
+    <div class="profile-body-content">
+      <ng-container [ngSwitch]="chosenOption">
+        <mto-data *ngSwitchCase="'data'"></mto-data>
+        <mto-password *ngSwitchCase="'password'"></mto-password>
+        <mto-apps *ngSwitchCase="'apps'"></mto-apps>
+      </ng-container>
+    </div>
+  </div>
+</div>
