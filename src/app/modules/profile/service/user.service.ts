@@ -4,13 +4,13 @@ import { of } from 'rxjs';
 import { User } from '../../shared/model/user';
 
 @Injectable()
-export class DataService {
+export class UserService {
   constructor(private http: HttpClient) {}
 
-  fetchUserData(userId: number) {
+  fetchUser() {
     return of(
       new User({
-        id: userId,
+        id: 1,
         email: 'jan_kowalski111@MatLine.pl',
         firstName: 'Jan',
         lastName: 'Kowalski',
