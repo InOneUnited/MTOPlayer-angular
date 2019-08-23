@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
     ],
   
     declarations: [
-      HeaderComponent
+      HeaderComponent,
+      FooterComponent
     ],
   
     entryComponents: [
