@@ -4,6 +4,7 @@ export class User {
   firstName: string = undefined;
   lastName: string = undefined;
   gender: string = undefined;
+  userPicture: string = undefined;
   birthday: Date = undefined;
   joinDate: Date = undefined;
 
@@ -13,6 +14,7 @@ export class User {
     firstName?: string;
     lastName?: string;
     gender?: string;
+    userPicture?: string;
     birthday?: Date;
     joinDate?: Date;
   }) {
