@@ -14,7 +14,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { UserService } from './service/user.service';
 import { UserEffects } from './store/effects/user.effects';
-import { profileReducers } from './store/reducers/profile.reducers';
+import { userReducer } from './store/reducers/user.reducer';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import { profileReducers } from './store/reducers/profile.reducers';
     MatInputModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    StoreModule.forFeature('profile', profileReducers),
+    StoreModule.forFeature('user', userReducer),
     EffectsModule.forFeature([UserEffects])
   ],
   declarations: [

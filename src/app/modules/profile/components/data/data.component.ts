@@ -22,7 +22,7 @@ export class DataComponent extends Unsubscribeable {
     super();
     this.form = this.createFormGroup();
     store.dispatch(fetchUser());
-    this.store
+    store
       .select(getCurrentUser)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(currentUser => {
