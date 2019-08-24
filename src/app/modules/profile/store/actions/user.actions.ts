@@ -5,7 +5,7 @@ export const fetchUser = createAction('[user] Fetch user');
 
 export const fetchUserSuccess = createAction(
   '[user] Fetch user success',
-  props<User>()
+  props<{ user: User }>()
 );
 
 export const fetchUserFailure = createAction(

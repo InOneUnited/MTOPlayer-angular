@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
@@ -16,15 +16,16 @@ export class UserEffects {
     private store: Store<AppState>
   ) {}
 
-  @Effect()
-  fetchUser$ = this.actions$.pipe(
-    ofType(UserActions.fetchUser),
-    withLatestFrom(this.store.select(getCurrentUser)),
-    switchMap(([action, user]) => {
-      return this.userService.fetchUser().pipe(
-        map(() => UserActions.fetchUserSuccess(user)),
-        catchError(error => of(UserActions.fetchUserFailure(error)))
-      );
-    })
+  fetchUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.fetchUser),
+      // withLatestFrom(this.store.select(getCurrentUser)),
+      switchMap(() => {
+        return this.userService.fetchUser().pipe(
+          map(user => UserActions.fetchUserSuccess({ user })),
+          catchError(error => of(UserActions.fetchUserFailure(error)))
+        );
+      })
+    )
   );
 }

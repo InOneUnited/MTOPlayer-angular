@@ -4,7 +4,7 @@ import { initialUserState, UserState } from '../states/user.state';
 
 const reducer = createReducer(
   initialUserState,
-  on(UserActions.fetchUserSuccess, (state, user) => ({
+  on(UserActions.fetchUserSuccess, (state, { user }) => ({
     ...state,
     currentUser: user
   })),
