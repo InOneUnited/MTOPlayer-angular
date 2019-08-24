@@ -1,22 +1,17 @@
 <div class="profile-data">
   <div class="profile-data-picture">
-    <img
+    <!-- <img
       class="profile-data-picture-img"
       src="{{ user.picture }}"
       alt="profile picture"
-    />
+    /> -->
     <input type="file" accept="image/*" (change)="onFileSelected($event)" />
   </div>
   <div class="profile-data-content">
     <form class="profile-data-content-form" [formGroup]="form" novalidate>
       <mat-form-field class="profile-data-form-login">
-        <input
-          [disabled]="true"
-          matInput
-          placeholder="Login"
-          [value]="user.email"
-          disabled
-        />
+        <input [disabled]="true" matInput placeholder="Login" disabled />
+        <!-- [value]="user.email" -->
       </mat-form-field>
       <mat-form-field class="profile-data-form-first-name">
         <input matInput placeholder="First Name" formControlName="firstName" />
@@ -54,9 +49,10 @@
           matInput
           [matDatepicker]="joinDate"
           placeholder="Join Date"
-          [value]="user.joinDate"
           disabled
         />
+        <!-- [value]="user.joinDate"
+       -->
         <mat-datepicker-toggle
           matSuffix
           [for]="joinDate"

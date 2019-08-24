@@ -6,10 +6,9 @@ import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { AppState } from '../../../../store/app.state';
 import { UserService } from '../../service/user.service';
 import {
-  FetchUser,
-  FetchUserFailure,
-  FetchUserSuccess,
-  UserActionTypes
+  fetchUser,
+  fetchUserFailure,
+  fetchUserSuccess
 } from '../actions/user.actions';
 import { getCurrentUser } from '../selectors/user.selector';
 
@@ -23,12 +22,12 @@ export class UserEffects {
 
   @Effect()
   fetchUser$ = this.actions$.pipe(
-    ofType<FetchUser>(UserActionTypes.FETCH_USER),
+    ofType(fetchUser),
     withLatestFrom(this.store.select(getCurrentUser)),
     switchMap(([action, user]) => {
       return this.userService.fetchUser().pipe(
-        map(() => new FetchUserSuccess(user)),
-        catchError(error => of(new FetchUserFailure(error)))
+        map(() => fetchUserSuccess(user)),
+        catchError(error => of(fetchUserFailure(error)))
       );
     })
   );

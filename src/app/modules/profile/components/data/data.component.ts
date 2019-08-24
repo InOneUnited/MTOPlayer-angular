@@ -5,8 +5,9 @@ import { takeUntil } from 'rxjs/operators';
 import { AppState } from '../../../../store/app.state';
 import { Unsubscribeable } from '../../../shared/base/unsubscribeable';
 import { User } from '../../../shared/model/user';
-import { FetchUser } from '../../store/actions/user.actions';
+import { fetchUser } from '../../store/actions/user.actions';
 import { getCurrentUser } from '../../store/selectors/user.selector';
+
 @Component({
   selector: 'mto-data',
   templateUrl: './data.component.html',
@@ -16,10 +17,11 @@ export class DataComponent extends Unsubscribeable {
   user: User;
   form: FormGroup;
   todayDate = new Date();
+
   constructor(private store: Store<AppState>, private fb: FormBuilder) {
     super();
     this.form = this.createFormGroup();
-    this.store.dispatch(new FetchUser());
+    store.dispatch(fetchUser());
     this.store
       .select(getCurrentUser)
       .pipe(takeUntil(this.unsubscribe))
@@ -27,6 +29,7 @@ export class DataComponent extends Unsubscribeable {
         this.user = currentUser;
       });
   }
+
   onFileSelected(event) {
     console.log(event);
   }
@@ -40,5 +43,7 @@ export class DataComponent extends Unsubscribeable {
     });
   }
 
-  onSave() {}
+  onSave() {
+    console.log('user', this.user);
+  }
 }
