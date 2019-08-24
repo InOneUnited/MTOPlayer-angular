@@ -19,7 +19,6 @@ export class UserEffects {
   fetchUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.fetchUser),
-      // withLatestFrom(this.store.select(getCurrentUser)),
       switchMap(() => {
         return this.userService.fetchUser().pipe(
           map(user => UserActions.fetchUserSuccess({ user })),
