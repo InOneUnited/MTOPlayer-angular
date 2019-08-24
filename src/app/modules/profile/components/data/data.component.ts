@@ -13,11 +13,8 @@ import { getCurrentUser } from '../../store/selectors/user.selector';
   styleUrls: ['./data.component.scss']
 })
 export class DataComponent extends Unsubscribeable {
-  joinDateValue = new Date();
   user: User;
   form: FormGroup;
-  userPicture: string;
-  email = 'ddd@o2.pl';
   todayDate = new Date();
   constructor(private store: Store<AppState>, private fb: FormBuilder) {
     super();

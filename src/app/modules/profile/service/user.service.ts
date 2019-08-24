@@ -15,7 +15,7 @@ export class UserService {
         firstName: 'Jan',
         lastName: 'Kowalski',
         gender: 'chłop',
-        userPicture: 'profile_picture.jpg',
+        picture: 'profile_picture.jpg',
         birthday: new Date(1980, 2, 25),
         joinDate: new Date(2018, 5, 15)
       })

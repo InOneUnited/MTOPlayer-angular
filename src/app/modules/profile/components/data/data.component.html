@@ -2,7 +2,7 @@
   <div class="profile-data-picture">
     <img
       class="profile-data-picture-img"
-      src="{{ userPicture }}"
+      src="{{ user.picture }}"
       alt="profile picture"
     />
     <input type="file" accept="image/*" (change)="onFileSelected($event)" />
@@ -14,7 +14,7 @@
           [disabled]="true"
           matInput
           placeholder="Login"
-          [value]="email"
+          [value]="user.email"
           disabled
         />
       </mat-form-field>
@@ -54,7 +54,7 @@
           matInput
           [matDatepicker]="joinDate"
           placeholder="Join Date"
-          [value]="joinDateValue"
+          [value]="user.joinDate"
           disabled
         />
         <mat-datepicker-toggle
