@@ -5,11 +5,7 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { AppState } from '../../../../store/app.state';
 import { UserService } from '../../service/user.service';
-import {
-  fetchUser,
-  fetchUserFailure,
-  fetchUserSuccess
-} from '../actions/user.actions';
+import * as UserActions from '../actions/user.actions';
 import { getCurrentUser } from '../selectors/user.selector';
 
 @Injectable()
@@ -22,12 +18,12 @@ export class UserEffects {
 
   @Effect()
   fetchUser$ = this.actions$.pipe(
-    ofType(fetchUser),
+    ofType(UserActions.fetchUser),
     withLatestFrom(this.store.select(getCurrentUser)),
     switchMap(([action, user]) => {
       return this.userService.fetchUser().pipe(
-        map(() => fetchUserSuccess(user)),
-        catchError(error => of(fetchUserFailure(error)))
+        map(() => UserActions.fetchUserSuccess(user)),
+        catchError(error => of(UserActions.fetchUserFailure(error)))
       );
     })
   );
