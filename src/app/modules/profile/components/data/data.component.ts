@@ -1,18 +1,34 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { takeUntil } from 'rxjs/operators';
+import { AppState } from '../../../../store/app.state';
+import { Unsubscribeable } from '../../../shared/base/unsubscribeable';
+import { User } from '../../../shared/model/user';
+import { FetchUser } from '../../store/actions/user.actions';
+import { getCurrentUser } from '../../store/selectors/user.selector';
 @Component({
   selector: 'mto-data',
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss']
 })
-export class DataComponent {
+export class DataComponent extends Unsubscribeable {
   joinDateValue = new Date();
+  user: User;
   form: FormGroup;
   userPicture: string;
   email = 'ddd@o2.pl';
   todayDate = new Date();
-  constructor(private fb: FormBuilder) {
+  constructor(private store: Store<AppState>, private fb: FormBuilder) {
+    super();
     this.form = this.createFormGroup();
+    this.store.dispatch(new FetchUser());
+    this.store
+      .select(getCurrentUser)
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(currentUser => {
+        this.user = currentUser;
+      });
   }
   onFileSelected(event) {
     console.log(event);
