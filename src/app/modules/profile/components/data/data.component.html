@@ -1,34 +1,55 @@
 <div class="profile-data">
   <div class="profile-data-picture">
-    <!-- <img
+    <img
       class="profile-data-picture-img"
       src="{{ user.picture }}"
       alt="profile picture"
-    /> -->
+    />
     <input type="file" accept="image/*" (change)="onFileSelected($event)" />
   </div>
   <div class="profile-data-content">
     <form class="profile-data-content-form" [formGroup]="form" novalidate>
       <mat-form-field class="profile-data-form-login">
-        <input [disabled]="true" matInput placeholder="Login" disabled />
-        <!-- [value]="user.email" -->
+        <input
+          [disabled]="true"
+          [value]="user.email"
+          matInput
+          placeholder="Login"
+          disabled
+        />
       </mat-form-field>
       <mat-form-field class="profile-data-form-first-name">
-        <input matInput placeholder="First Name" formControlName="firstName" />
+        <input
+          matInput
+          placeholder="First Name"
+          formControlName="firstName"
+          [value]="user.firstName"
+        />
       </mat-form-field>
       <mat-form-field class="profile-data-form-last-name">
-        <input matInput placeholder="Last Name" formControlName="lastName" />
+        <input
+          matInput
+          placeholder="Last Name"
+          formControlName="lastName"
+          [value]="user.lastName"
+        />
       </mat-form-field>
       <mat-form-field class="profile-data-form-gender">
-        <input matInput placeholder="Gender" formControlName="gender" />
+        <input
+          matInput
+          placeholder="Gender"
+          formControlName="gender"
+          [value]="user.gender"
+        />
       </mat-form-field>
       <mat-form-field>
         <input
           matInput
-          [matDatepicker]="birthday"
           placeholder="Birthday"
           formControlName="birthday"
+          [matDatepicker]="birthday"
           [max]="todayDate"
+          [value]="user.birthday"
         />
         <mat-datepicker-toggle
           matSuffix
@@ -46,13 +67,12 @@
       </ng-container>
       <mat-form-field>
         <input
-          matInput
           [matDatepicker]="joinDate"
+          [value]="user.joinDate"
+          matInput
           placeholder="Join Date"
           disabled
         />
-        <!-- [value]="user.joinDate"
-       -->
         <mat-datepicker-toggle
           matSuffix
           [for]="joinDate"
