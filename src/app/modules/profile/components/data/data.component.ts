@@ -53,6 +53,7 @@ export class DataComponent extends Unsubscribeable {
       birthday: formValue.birthday
     });
   }
+
   onSave() {
     const updatedUser = this.formToUser();
     this.store.dispatch(updateUser({ user: updatedUser }));

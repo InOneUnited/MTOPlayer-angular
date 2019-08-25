@@ -8,9 +8,15 @@ const reducer = createReducer(
     ...state,
     currentUser: user
   })),
-  on(UserActions.fetchUserFailure, state => ({
+
+  on(UserActions.fetchUserFailure, UserActions.fetchUserFailure, state => ({
     ...state,
     operationState: 'error'
+  })),
+
+  on(UserActions.updateUserSuccess, (state, { user }) => ({
+    ...state,
+    currentUser: user
   }))
 );
 

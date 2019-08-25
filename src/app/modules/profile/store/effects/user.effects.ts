@@ -10,11 +10,7 @@ import { getCurrentUser } from '../selectors/user.selector';
 
 @Injectable()
 export class UserEffects {
-  constructor(
-    private actions$: Actions,
-    private userService: UserService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private actions$: Actions, private userService: UserService) {}
 
   fetchUser$ = createEffect(() =>
     this.actions$.pipe(
@@ -23,6 +19,21 @@ export class UserEffects {
         return this.userService.fetchUser().pipe(
           map(user => UserActions.fetchUserSuccess({ user })),
           catchError(error => of(UserActions.fetchUserFailure(error)))
+        );
+      })
+    )
+  );
+
+  updateUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.updateUser),
+      map(action => action.user),
+      switchMap(user => {
+        return this.userService.updateUser(user).pipe(
+          map(updatedUser =>
+            UserActions.updateUserSuccess({ user: updatedUser })
+          ),
+          catchError(error => of(UserActions.updateUserFailure(error)))
         );
       })
     )
