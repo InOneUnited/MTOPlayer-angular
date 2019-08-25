@@ -12,3 +12,18 @@ export const fetchUserFailure = createAction(
   '[user] Fetch user failure',
   props<{ failure: any }>()
 );
+
+export const updateUser = createAction(
+  '[user] Update user',
+  props<{ user: User }>()
+);
+
+export const updateUserSuccess = createAction(
+  '[user] Update user success',
+  props<{ user: User }>()
+);
+
+export const updateUserFailure = createAction(
+  '[user] Update user failure',
+  props<{ failure: any }>()
+);

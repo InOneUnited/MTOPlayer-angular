@@ -19,28 +19,13 @@
         />
       </mat-form-field>
       <mat-form-field class="profile-data-form-first-name">
-        <input
-          matInput
-          placeholder="First Name"
-          formControlName="firstName"
-          [value]="user.firstName"
-        />
+        <input matInput placeholder="First Name" formControlName="firstName" />
       </mat-form-field>
       <mat-form-field class="profile-data-form-last-name">
-        <input
-          matInput
-          placeholder="Last Name"
-          formControlName="lastName"
-          [value]="user.lastName"
-        />
+        <input matInput placeholder="Last Name" formControlName="lastName" />
       </mat-form-field>
       <mat-form-field class="profile-data-form-gender">
-        <input
-          matInput
-          placeholder="Gender"
-          formControlName="gender"
-          [value]="user.gender"
-        />
+        <input matInput placeholder="Gender" formControlName="gender" />
       </mat-form-field>
       <mat-form-field>
         <input
@@ -49,7 +34,6 @@
           formControlName="birthday"
           [matDatepicker]="birthday"
           [max]="todayDate"
-          [value]="user.birthday"
         />
         <mat-datepicker-toggle
           matSuffix

@@ -5,7 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { AppState } from '../../../../store/app.state';
 import { Unsubscribeable } from '../../../shared/base/unsubscribeable';
 import { User } from '../../../shared/model/user';
-import { fetchUser } from '../../store/actions/user.actions';
+import { fetchUser, updateUser } from '../../store/actions/user.actions';
 import { getCurrentUser } from '../../store/selectors/user.selector';
 
 @Component({
@@ -20,7 +20,6 @@ export class DataComponent extends Unsubscribeable {
 
   constructor(private store: Store<AppState>, private fb: FormBuilder) {
     super();
-    this.form = this.createFormGroup();
     store.dispatch(fetchUser());
     store
       .select(getCurrentUser)
@@ -28,22 +27,34 @@ export class DataComponent extends Unsubscribeable {
       .subscribe(currentUser => {
         this.user = currentUser;
       });
+    this.form = this.createFormGroupFromUser();
   }
 
   onFileSelected(event) {
     console.log(event);
   }
 
-  private createFormGroup() {
+  private createFormGroupFromUser() {
     return this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      gender: [''],
-      birthday: [undefined]
+      firstName: [this.user.firstName],
+      lastName: [this.user.lastName],
+      gender: [this.user.gender],
+      birthday: [this.user.birthday]
     });
   }
 
+  private formToUser() {
+    const formValue = this.form.value;
+    return new User({
+      ...this.user,
+      firstName: formValue.firstName,
+      lastName: formValue.lastName,
+      gender: formValue.gender,
+      birthday: formValue.birthday
+    });
+  }
   onSave() {
-    console.log('user', this.user);
+    const updatedUser = this.formToUser();
+    this.store.dispatch(updateUser({ user: updatedUser }));
   }
 }

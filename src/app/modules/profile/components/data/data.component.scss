@@ -1,29 +1,29 @@
 @import 'mto-variables.scss';
 .profile-data {
   display: grid;
-  grid-template-columns: 2fr 8fr;
-  padding-left: 25%;
-  padding-right: 25%;
+  grid-template-columns: 1fr 2fr 8fr 1fr;
   height: 100%;
   align-items: center;
 
   &-picture {
+    grid-column-start: 2;
+
     &-img {
-      max-width: 350px;
+      max-width: 250px;
     }
   }
 
   &-content {
+    grid-column-start: 3;
     &-form {
       display: grid;
     }
   }
 
   &-save {
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-start: 3;
     width: 250px;
-    justify-self: center;
+    justify-self: end;
     align-self: start;
   }
 }
