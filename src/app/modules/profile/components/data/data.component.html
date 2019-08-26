@@ -2,8 +2,8 @@
   <div class="profile-data-picture">
     <img
       class="profile-data-picture-img"
-      src="{{ user.picture }}"
       alt="profile picture"
+      [src]="user.picture || 'http://placehold.it/180'"
     />
     <input type="file" accept="image/*" (change)="onFileSelected($event)" />
   </div>

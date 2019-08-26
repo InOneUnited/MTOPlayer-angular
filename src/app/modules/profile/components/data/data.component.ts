@@ -15,6 +15,7 @@ import { getCurrentUser } from '../../store/selectors/user.selector';
 })
 export class DataComponent extends Unsubscribeable {
   user: User;
+  profilePicture: string | File;
   form: FormGroup;
   todayDate = new Date();
 
@@ -31,7 +32,25 @@ export class DataComponent extends Unsubscribeable {
   }
 
   onFileSelected(event) {
-    console.log(event);
+    if (
+      event.target.files &&
+      event.target.files[0] &&
+      event.target.files[0].size < 1000000 &&
+      event.target.files[0].type.match(/^image/i)
+    ) {
+      const file = event.target.files[0] as File;
+      console.log('size', file.size);
+      console.log('type', file.type);
+      const reader = new FileReader();
+      reader.onload = e => (this.user.picture = reader.result as string);
+
+      reader.readAsDataURL(file);
+    }
+  }
+
+  onSave() {
+    const updatedUser = this.formToUser();
+    this.store.dispatch(updateUser({ user: updatedUser }));
   }
 
   private createFormGroupFromUser() {
@@ -52,10 +71,5 @@ export class DataComponent extends Unsubscribeable {
       gender: formValue.gender,
       birthday: formValue.birthday
     });
-  }
-
-  onSave() {
-    const updatedUser = this.formToUser();
-    this.store.dispatch(updateUser({ user: updatedUser }));
   }
 }
