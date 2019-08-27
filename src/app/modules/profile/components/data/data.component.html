@@ -1,14 +1,30 @@
 <div class="profile-data">
-  <div class="profile-data-picture">
-    <img
-      class="profile-data-picture-img"
-      alt="profile picture"
-      [src]="user.picture || 'http://placehold.it/180'"
-    />
-    <input type="file" accept="image/*" (change)="onFileSelected($event)" />
-  </div>
-  <div class="profile-data-content">
-    <form class="profile-data-content-form" [formGroup]="form" novalidate>
+  <form class="profile-data-form" [formGroup]="form" novalidate>
+    <div class="profile-data-picture">
+      <img
+        class="profile-data-picture-img"
+        alt="profile picture"
+        [src]="user.picture || 'http://placehold.it/180'"
+      />
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+        formControlName="picture"
+      />
+      <ng-container *ngIf="form.controls.picture?.invalid">
+        <mat-error *ngIf="form.controls.picture?.errors.noFile">
+          No file choosen
+        </mat-error>
+        <mat-error *ngIf="form.controls.picture?.errors.fileToBig">
+          File to big
+        </mat-error>
+        <mat-error *ngIf="form.controls.picture?.errors.wrongExtension">
+          Wrong extension
+        </mat-error>
+      </ng-container>
+    </div>
+    <div class="profile-data-content">
       <mat-form-field class="profile-data-form-login">
         <input
           [disabled]="true"
@@ -63,14 +79,14 @@
         ></mat-datepicker-toggle>
         <mat-datepicker #joinDate></mat-datepicker>
       </mat-form-field>
-    </form>
-  </div>
-  <button
-    class="profile-data-save"
-    [disabled]="form.invalid"
-    type="submit"
-    (click)="onSave()"
-  >
-    Save
-  </button>
+    </div>
+    <button
+      class="profile-data-save"
+      [disabled]="form.invalid"
+      type="submit"
+      (click)="onSave()"
+    >
+      Save
+    </button>
+  </form>
 </div>

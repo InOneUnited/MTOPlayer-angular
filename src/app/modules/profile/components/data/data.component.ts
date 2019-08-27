@@ -32,15 +32,20 @@ export class DataComponent extends Unsubscribeable {
   }
 
   onFileSelected(event) {
-    if (
-      event.target.files &&
-      event.target.files[0] &&
-      event.target.files[0].size < 1000000 &&
-      event.target.files[0].type.match(/^image/i)
-    ) {
-      const file = event.target.files[0] as File;
-      console.log('size', file.size);
-      console.log('type', file.type);
+    const files = event.target.files;
+    const oneMB = 1000000;
+    const formPicture = this.form.controls.picture;
+    const regexFileExtension = /\.(jpe?g|png|gif)$/i;
+
+    if (!(files && files[0])) {
+      formPicture.setErrors({ noFile: true });
+      this.user.picture = '';
+    } else if (files[0].size > oneMB) {
+      formPicture.setErrors({ fileToBig: true });
+    } else if (!files[0].type.match(regexFileExtension)) {
+      formPicture.setErrors({ wrongExtension: true });
+    } else {
+      const file = files[0] as File;
       const reader = new FileReader();
       reader.onload = e => (this.user.picture = reader.result as string);
 
@@ -58,7 +63,8 @@ export class DataComponent extends Unsubscribeable {
       firstName: [this.user.firstName],
       lastName: [this.user.lastName],
       gender: [this.user.gender],
-      birthday: [this.user.birthday]
+      birthday: [this.user.birthday],
+      picture: [undefined]
     });
   }
 
@@ -69,7 +75,8 @@ export class DataComponent extends Unsubscribeable {
       firstName: formValue.firstName,
       lastName: formValue.lastName,
       gender: formValue.gender,
-      birthday: formValue.birthday
+      birthday: formValue.birthday,
+      picture: formValue.picture
     });
   }
 }
