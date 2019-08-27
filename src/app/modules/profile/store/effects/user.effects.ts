@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
-import { AppState } from '../../../../store/app.state';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { UserService } from '../../service/user.service';
 import * as UserActions from '../actions/user.actions';
-import { getCurrentUser } from '../selectors/user.selector';
 
 @Injectable()
 export class UserEffects {

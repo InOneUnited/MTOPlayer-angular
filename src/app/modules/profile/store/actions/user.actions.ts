@@ -1,4 +1,4 @@
-import { Action, createAction, props } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { User } from '../../../shared/model/user';
 
 export const fetchUser = createAction('[user] Fetch user');
