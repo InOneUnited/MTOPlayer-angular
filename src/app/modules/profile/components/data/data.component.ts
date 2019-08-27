@@ -35,7 +35,7 @@ export class DataComponent extends Unsubscribeable {
     const files = event.target.files;
     const oneMB = 1000000;
     const formPicture = this.form.controls.picture;
-    const regexFileExtension = /\.(jpe?g|png|gif)$/i;
+    const regexFileExtension = /image\/(gif|jpg|jpeg|tiff|png)$/i;
 
     if (!(files && files[0])) {
       formPicture.setErrors({ noFile: true });
