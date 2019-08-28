@@ -1,12 +1,14 @@
 <div class="apps">
   <div class="apps-added">
     <div class="apps-added-app">
-      <div class="apps-added-app-logo"></div>
-      <div class="apps-added-app-switch"></div>
+      <ng-container *ngFor="let app of apps">
+        <div class="apps-added-app-logo soundcloud">logo</div>
+        <mat-slide-toggle class="apps-added-app-switch"></mat-slide-toggle>
+      </ng-container>
     </div>
   </div>
   <div class="apps-add">
-    <div class="apps-add-icon"></div>
+    <div class="apps-add-icon">Add icon</div>
     <div class="apps-add-text">Add new app</div>
   </div>
 </div>

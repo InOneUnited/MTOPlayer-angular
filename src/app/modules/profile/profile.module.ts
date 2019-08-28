@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '../shared/shared.module';
@@ -25,6 +26,7 @@ import { userReducer } from './store/reducers/user.reducer';
     MatInputModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatSlideToggleModule,
     StoreModule.forFeature('user', userReducer),
     EffectsModule.forFeature([UserEffects])
   ],
