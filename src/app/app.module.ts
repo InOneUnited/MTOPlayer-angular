@@ -6,10 +6,16 @@ import { ProfileModule } from './modules/profile/profile.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './components/index/index.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { AppEffects } from './store/app.effects';
+import { appReducers } from './store/app.reducers';
 
 @NgModule({
   declarations: [AppComponent, IndexComponent],
@@ -22,9 +28,15 @@ import { SharedModule } from './modules/shared/shared.module';
     BrowserAnimationsModule,
     NgbModule,
     SharedModule.forRoot(),
-    ProfileModule.forRoot()
-    // StoreModule.forRoot(appReducers),
-    // EffectsModule.forRoot([AppEffects]),
+    ProfileModule.forRoot(),
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([AppEffects]),
+    !environment.production
+      ? StoreDevtoolsModule.instrument({
+          maxAge: 25,
+          logOnly: environment.production
+        })
+      : []
   ],
   providers: [],
   entryComponents: [],
