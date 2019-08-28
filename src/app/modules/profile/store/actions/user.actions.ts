@@ -1,28 +1,29 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { User } from '../../../shared/model/user';
 
-export enum UserActionTypes {
-  FETCH_USER_DATA = '[data] Fetch user data',
-  FETCH_USER_DATA_SUCCESS = '[data] Fetch user data success',
-  FETCH_USER_DATA_FAILURE = '[data] Fetch user data failure'
-}
+export const fetchUser = createAction('[user] Fetch user');
 
-export class FetchUserData implements Action {
-  readonly type = UserActionTypes.FETCH_USER_DATA;
-}
+export const fetchUserSuccess = createAction(
+  '[user] Fetch user success',
+  props<{ user: User }>()
+);
 
-export class FetchUserDataSuccess implements Action {
-  readonly type = UserActionTypes.FETCH_USER_DATA_SUCCESS;
-  constructor(public user: User) {}
-}
+export const fetchUserFailure = createAction(
+  '[user] Fetch user failure',
+  props<{ failure: any }>()
+);
 
-export class FetchUserDataFailure implements Action {
-  readonly type = UserActionTypes.FETCH_USER_DATA_FAILURE;
-  constructor(public failure: any) {}
-}
+export const updateUser = createAction(
+  '[user] Update user',
+  props<{ user: User }>()
+);
 
-export type UserActions =
-  | FetchUserData
-  | FetchUserDataSuccess
-  | FetchUserDataFailure;
-//   | Logout
+export const updateUserSuccess = createAction(
+  '[user] Update user success',
+  props<{ user: User }>()
+);
+
+export const updateUserFailure = createAction(
+  '[user] Update user failure',
+  props<{ failure: any }>()
+);

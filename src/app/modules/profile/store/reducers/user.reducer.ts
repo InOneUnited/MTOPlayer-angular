@@ -1,30 +1,25 @@
-import { UserActions, UserActionTypes } from '../actions/user.actions';
+import { Action, createReducer, on } from '@ngrx/store';
+import * as UserActions from '../actions/user.actions';
 import { initialUserState, UserState } from '../states/user.state';
 
-export function userReducer(
-  state = initialUserState,
-  action: UserActions
-): UserState {
-  switch (action.type) {
-    case UserActionTypes.FETCH_USER_DATA_SUCCESS: {
-      return {
-        ...initialUserState,
-        currentUser: action.user
-      };
-    }
+const reducer = createReducer(
+  initialUserState,
+  on(UserActions.fetchUserSuccess, (state, { user }) => ({
+    ...state,
+    currentUser: user
+  })),
 
-    case UserActionTypes.FETCH_USER_DATA_FAILURE: {
-      return {
-        ...state,
-        operationState: 'error'
-      };
-    }
-    // case AuthActionTypes.LOGOUT: {
-    //   return initialUserState;
-    // }
+  on(UserActions.fetchUserFailure, UserActions.fetchUserFailure, state => ({
+    ...state,
+    operationState: 'error'
+  })),
 
-    default: {
-      return state;
-    }
-  }
+  on(UserActions.updateUserSuccess, (state, { user }) => ({
+    ...state,
+    currentUser: user
+  }))
+);
+
+export function userReducer(state: UserState | undefined, action: Action) {
+  return reducer(state, action);
 }
