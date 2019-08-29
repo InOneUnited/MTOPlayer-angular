@@ -23,6 +23,7 @@ export class AppsComponent extends Unsubscribeable {
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(musicApps => {
         this.apps = musicApps;
+        console.log(this.apps);
       });
   }
 }

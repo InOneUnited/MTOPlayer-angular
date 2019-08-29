@@ -31,6 +31,7 @@ export class MusicAppsService {
   constructor(private http: HttpClient) {}
 
   fetchMusicApps() {
+    console.log('service');
     return of(this.musicApps);
   }
 }

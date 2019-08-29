@@ -12,14 +12,10 @@ const reducer = createReducer(
     currentMusicApps: musicApps
   })),
 
-  on(
-    MusicAppsActions.fetchMusicAppsFailure,
-    MusicAppsActions.fetchMusicAppsFailure,
-    state => ({
-      ...state,
-      operationState: 'error'
-    })
-  )
+  on(MusicAppsActions.fetchMusicAppsFailure, state => ({
+    ...state,
+    operationState: 'error'
+  }))
 );
 
 export function musicAppsReducer(

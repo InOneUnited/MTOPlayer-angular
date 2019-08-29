@@ -13,9 +13,14 @@ import { DataComponent } from './components/data/data.component';
 import { PasswordComponent } from './components/password/password.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
+import { MusicAppsService } from './service/music-apps.service';
 import { UserService } from './service/user.service';
+import { MusicAppsEffects } from './store/effects/music-apps.effects';
 import { UserEffects } from './store/effects/user.effects';
-import { userReducer } from './store/reducers/user.reducer';
+import {
+  profileFeatureKey,
+  profileReducers
+} from './store/reducers/profile.reducer';
 
 @NgModule({
   imports: [
@@ -27,8 +32,8 @@ import { userReducer } from './store/reducers/user.reducer';
     MatNativeDateModule,
     MatDatepickerModule,
     MatSlideToggleModule,
-    StoreModule.forFeature('user', userReducer),
-    EffectsModule.forFeature([UserEffects])
+    StoreModule.forFeature(profileFeatureKey, profileReducers),
+    EffectsModule.forFeature([UserEffects, MusicAppsEffects])
   ],
   declarations: [
     ProfileComponent,
@@ -44,7 +49,7 @@ export class ProfileModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ProfileModule,
-      providers: [UserService]
+      providers: [UserService, MusicAppsService]
     };
   }
 }

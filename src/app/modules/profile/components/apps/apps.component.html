@@ -1,10 +1,10 @@
 <div class="apps">
   <div class="apps-added">
     <div class="apps-added-app">
-      <ng-container *ngFor="let app of apps">
-        <div class="apps-added-app-logo soundcloud">logo</div>
+      <div *ngFor="let app of apps">
+        <div class="apps-added-app-logo">{{ app.name }}</div>
         <mat-slide-toggle class="apps-added-app-switch"></mat-slide-toggle>
-      </ng-container>
+      </div>
     </div>
   </div>
   <div class="apps-add">

@@ -1,8 +1,11 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 import { MusicAppsState } from '../states/music-apps.state';
+import { ProfileState } from '../states/profile.state';
+import { getProfileState } from './profile.selector';
 
-export const getMusicAppsState = createFeatureSelector<MusicAppsState>(
-  'music-apps'
+export const getMusicAppsState = createSelector(
+  getProfileState,
+  (state: ProfileState) => state && state.musicAppsState
 );
 
 export const getCurrentMusicApps = createSelector(
