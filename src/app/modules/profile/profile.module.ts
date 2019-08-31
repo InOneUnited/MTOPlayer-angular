@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../shared/shared.module';
+import { AddAppDialogComponent } from './components/apps/add-app/add-app.component';
 import { AppsComponent } from './components/apps/apps.component';
 import { DataComponent } from './components/data/data.component';
 import { PasswordComponent } from './components/password/password.component';
@@ -40,12 +41,18 @@ import { profileFeatureKey, profileReducers } from './store/reducers/profile.red
     EffectsModule.forFeature([UserEffects, MusicAppsEffects])
   ],
   declarations: [
+    AddAppDialogComponent,
     AppsComponent,
     DataComponent,
     PasswordComponent,
     ProfileComponent
   ],
-  entryComponents: [DataComponent, PasswordComponent, AppsComponent],
+  entryComponents: [
+    AddAppDialogComponent,
+    DataComponent,
+    PasswordComponent,
+    AppsComponent
+  ],
   providers: [],
   exports: []
 })
