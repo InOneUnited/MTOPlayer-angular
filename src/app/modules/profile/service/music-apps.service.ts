@@ -8,22 +8,26 @@ export class MusicAppsService {
   musicApps: MusicApp[] = [
     new MusicApp({
       id: 1,
-      name: 'Dropbox',
+      name: 'dropbox',
+      userLogin: 'dodo@dudu.pl',
       isConnected: false
     }),
     new MusicApp({
       id: 2,
-      name: 'Google Drive',
+      name: 'google_drive',
+      userLogin: 'dodo@dudu.pl',
       isConnected: false
     }),
     new MusicApp({
       id: 3,
-      name: 'Spotify',
+      name: 'spotify',
+      userLogin: 'kakafonia@co2.pl',
       isConnected: false
     }),
     new MusicApp({
       id: 4,
-      name: 'SoundCloud',
+      name: 'soundcloud',
+      userLogin: 'fakemail@fake.eu',
       isConnected: false
     })
   ];
