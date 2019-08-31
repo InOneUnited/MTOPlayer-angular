@@ -1,8 +1,8 @@
 export enum ApiLogo {
-  dropbox = 'src/assets/img/logo/dropbox.jpg',
-  googleDrive = 'src/assets/img/logo/googledrive.png',
-  soundCloud = 'src/assets/img/logo/soundcloud.png',
-  spotify = 'src/assets/img/logo/spotify.png'
+  dropbox = 'assets/img/logo/dropbox.jpg',
+  googleDrive = 'assets/img/logo/googledrive.png',
+  soundCloud = 'assets/img/logo/soundcloud.png',
+  spotify = 'assets/img/logo/spotify.png'
 }
 
 export class MusicApp {
