@@ -1,0 +1,17 @@
+@import 'mto-variables.scss';
+
+.apps {
+  padding: 2rem;
+
+  &-added {
+    &-app {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 2rem;
+
+      &-data {
+        justify-self: end;
+      }
+    }
+  }
+}

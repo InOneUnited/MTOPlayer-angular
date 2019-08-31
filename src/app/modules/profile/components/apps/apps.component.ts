@@ -17,13 +17,13 @@ export class AppsComponent extends Unsubscribeable {
 
   constructor(private store: Store<AppState>) {
     super();
+
     store.dispatch(fetchMusicApps());
     store
       .select(getCurrentMusicApps)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(musicApps => {
         this.apps = musicApps;
-        console.log(this.apps);
       });
   }
 }

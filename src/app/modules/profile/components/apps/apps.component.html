@@ -1,10 +1,12 @@
 <div class="apps">
   <div class="apps-added">
-    <div class="apps-added-app">
-      <div *ngFor="let app of apps">
-        <div class="apps-added-app-logo">{{ app.name }}</div>
-        <mat-slide-toggle class="apps-added-app-switch"></mat-slide-toggle>
+    <div class="apps-added-app" *ngFor="let app of apps">
+      <div class="apps-added-app-data">
+        <span class="apps-added-app-data-name">{{ app.name }}</span>
+        <span class="apps-added-app-data-logo">{{ app.userLogo }}</span>
+        <span class="apps-added-app-data-user">{{ app.userLogin }}</span>
       </div>
+      <mat-slide-toggle class="apps-added-app-switch"></mat-slide-toggle>
     </div>
   </div>
   <div class="apps-add">
