@@ -22,6 +22,22 @@
       width: 80%;
     }
   }
+
+  &-add {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-column-gap: 1rem;
+
+    &-icon {
+      justify-self: end;
+      cursor: pointer;
+    }
+
+    &-text {
+      justify-self: start;
+    }
+  }
 }
 
 img {
