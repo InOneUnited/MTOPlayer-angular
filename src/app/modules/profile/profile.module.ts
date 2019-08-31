@@ -5,6 +5,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ApiNamePipe } from '../shared/pipes/ApiNamePipe';
@@ -26,6 +27,7 @@ import {
 @NgModule({
   imports: [
     CommonModule,
+    FontAwesomeModule,
     SharedModule,
     ProfileRoutingModule,
     ReactiveFormsModule,
