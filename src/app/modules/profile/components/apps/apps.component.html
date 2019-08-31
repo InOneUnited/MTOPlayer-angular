@@ -1,11 +1,11 @@
 <div class="apps">
   <div class="apps-added">
     <div class="apps-added-app" *ngFor="let app of apps">
-      <div class="apps-added-app-data">
-        <span class="apps-added-app-data-name">{{ app.name }}</span>
-        <span class="apps-added-app-data-logo">{{ app.userLogo }}</span>
-        <span class="apps-added-app-data-user">{{ app.userLogin }}</span>
-      </div>
+      <img [src]="app.userLogo" class="apps-added-app-logo" alt="user logo" />
+      <span class="apps-added-app-name">
+        {{ app.name | mtoApiName }}
+      </span>
+      <span class="apps-added-app-user">{{ app.userLogin }}</span>
       <mat-slide-toggle class="apps-added-app-switch"></mat-slide-toggle>
     </div>
   </div>
