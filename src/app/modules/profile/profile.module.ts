@@ -8,7 +8,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { ApiNamePipe } from '../shared/pipes/ApiNamePipe';
 import { SharedModule } from '../shared/shared.module';
 import { AppsComponent } from './components/apps/apps.component';
 import { DataComponent } from './components/data/data.component';

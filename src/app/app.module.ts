@@ -3,7 +3,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  FaIconLibrary,
+  FontAwesomeModule
+} from '@fortawesome/angular-fontawesome';
+import {} from '@fortawesome/free-brands-svg-icons';
+import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
+import {} from '@fortawesome/free-solid-svg-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -44,4 +50,8 @@ import { appReducers } from './store/app.reducers';
   bootstrap: [AppComponent],
   exports: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(faPlusSquare);
+  }
+}

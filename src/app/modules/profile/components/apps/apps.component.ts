@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
 import { AppState } from '../../../../store/app.state';
@@ -15,7 +14,6 @@ import { getCurrentMusicApps } from '../../store/selectors/music-apps.selector';
 })
 export class AppsComponent extends Unsubscribeable {
   apps: MusicApp[];
-  faCoffee = faCoffee;
 
   constructor(private store: Store<AppState>) {
     super();
