@@ -5,6 +5,15 @@ export enum ApiLogo {
   spotify = 'assets/img/logo/spotify.png'
 }
 
+export class ApiSelect {
+  name?: string = undefined;
+  picture?: string = undefined;
+
+  constructor(fields?: { name?: string; picture?: string }) {
+    Object.assign(this, fields);
+  }
+}
+
 export class MusicApp {
   id: number = undefined;
   name: string = undefined;
