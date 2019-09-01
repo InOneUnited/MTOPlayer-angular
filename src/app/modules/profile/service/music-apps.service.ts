@@ -7,36 +7,36 @@ import { MusicApp } from '../../shared/model/music-app';
 @Injectable()
 export class MusicAppsService {
   musicApps: MusicApp[] = [
-    // new MusicApp({
-    //   id: 0,
-    //   name: 'dropbox',
-    //   userLogin: 'dodo@dudu.pl',
-    //   isConnected: false
-    // }),
-    // new MusicApp({
-    //   id: 1,
-    //   name: 'google_drive',
-    //   userLogin: 'dodo@dudu.pl',
-    //   isConnected: false
-    // }),
-    // new MusicApp({
-    //   id: 2,
-    //   name: 'spotify',
-    //   userLogin: 'kakafonia@co2.pl',
-    //   isConnected: false
-    // }),
-    // new MusicApp({
-    //   id: 3,
-    //   name: 'soundcloud',
-    //   userLogin: 'fakemail@fake.eu',
-    //   isConnected: false
-    // }),
-    // new MusicApp({
-    //   id: 4,
-    //   name: 'dropbox',
-    //   userLogin: 'dada@dodo.ee',
-    //   isConnected: false
-    // })
+    new MusicApp({
+      id: 0,
+      name: 'dropbox',
+      userLogin: 'dodo@dudu.pl',
+      isConnected: false
+    }),
+    new MusicApp({
+      id: 1,
+      name: 'google_drive',
+      userLogin: 'dodo@dudu.pl',
+      isConnected: false
+    }),
+    new MusicApp({
+      id: 2,
+      name: 'spotify',
+      userLogin: 'kakafonia@co2.pl',
+      isConnected: false
+    }),
+    new MusicApp({
+      id: 3,
+      name: 'soundcloud',
+      userLogin: 'fakemail@fake.eu',
+      isConnected: false
+    }),
+    new MusicApp({
+      id: 4,
+      name: 'dropbox',
+      userLogin: 'dada@dodo.ee',
+      isConnected: false
+    })
   ];
 
   constructor(private http: HttpClient) {}
