@@ -8,6 +8,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
@@ -34,6 +35,7 @@ import { profileFeatureKey, profileReducers } from './store/reducers/profile.red
     MatInputModule,
     MatNativeDateModule,
     MatSlideToggleModule,
+    NgSelectModule,
     ProfileRoutingModule,
     ReactiveFormsModule,
     SharedModule,

@@ -14,6 +14,7 @@ export class AddAppDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: MusicApp
   ) {}
 
+  ppl = ['hello', 'hey', 'hello'];
   onNoClick(): void {
     this.dialogRef.close();
   }
