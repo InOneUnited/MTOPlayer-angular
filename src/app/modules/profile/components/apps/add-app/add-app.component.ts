@@ -3,7 +3,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { ApiLogo, ApiSelect, MusicApp } from '../../../../shared/model/music-app';
 
-
 @Component({
   selector: 'mto-add-app',
   templateUrl: './add-app.component.html',
@@ -16,7 +15,6 @@ export class AddAppDialogComponent {
     new ApiSelect({ name: 'google_drive', picture: ApiLogo.googleDrive }),
     new ApiSelect({ name: 'spotify', picture: ApiLogo.spotify })
   ];
-
   // temporary as it's strongly dependend on backend which is yet to come.
   chosenApi: ApiSelect;
   login: string;

@@ -6,7 +6,10 @@
         {{ app.name | mtoApiName }}
       </span>
       <span class="apps-added-app-user">{{ app.userLogin }}</span>
-      <mat-slide-toggle class="apps-added-app-switch"></mat-slide-toggle>
+      <mat-slide-toggle
+        (change)="onChangeToggle($event.checked, app.id)"
+        class="apps-added-app-switch"
+      ></mat-slide-toggle>
     </div>
   </div>
   <div class="apps-add">

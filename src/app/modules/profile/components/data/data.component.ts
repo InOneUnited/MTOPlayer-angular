@@ -32,7 +32,7 @@ export class DataComponent extends Unsubscribeable {
     this.form = this.createFormGroupFromUser();
   }
 
-  onFileSelected(event) {
+  onFileSelected(event): void {
     const files = event.target.files;
     const oneMB = 1000000;
     const formPicture = this.form.controls.picture;
@@ -54,12 +54,12 @@ export class DataComponent extends Unsubscribeable {
     }
   }
 
-  onSave() {
+  onSave(): void {
     const updatedUser = this.formToUser();
     this.store.dispatch(updateUser({ user: updatedUser }));
   }
 
-  private createFormGroupFromUser() {
+  private createFormGroupFromUser(): FormGroup {
     return this.fb.group({
       firstName: [this.user.firstName],
       lastName: [this.user.lastName],
@@ -69,7 +69,7 @@ export class DataComponent extends Unsubscribeable {
     });
   }
 
-  private formToUser() {
+  private formToUser(): User {
     const formValue = this.form.value;
     return new User({
       ...this.user,
