@@ -11,16 +11,6 @@
     height: 100%;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     align-items: center;
-
-    &-app {
-      display: grid;
-      grid-auto-flow: column;
-      grid-template-columns: 1fr 1fr 1fr min-content;
-      align-items: center;
-      justify-self: center;
-      grid-column-gap: 2rem;
-      width: 80%;
-    }
   }
 
   &-add {

@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../shared/shared.module';
 import { AddAppDialogComponent } from './components/apps/add-app/add-app.component';
+import { AppsElementComponent } from './components/apps/apps-element/apps-element.component';
 import { AppsComponent } from './components/apps/apps.component';
 import { DataComponent } from './components/data/data.component';
 import { PasswordComponent } from './components/password/password.component';
@@ -46,12 +47,14 @@ import { profileFeatureKey, profileReducers } from './store/reducers/profile.red
   declarations: [
     AddAppDialogComponent,
     AppsComponent,
+    AppsElementComponent,
     DataComponent,
     PasswordComponent,
     ProfileComponent
   ],
   entryComponents: [
     AddAppDialogComponent,
+    AppsElementComponent,
     DataComponent,
     PasswordComponent,
     AppsComponent

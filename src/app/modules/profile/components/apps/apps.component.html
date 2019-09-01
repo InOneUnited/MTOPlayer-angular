@@ -1,16 +1,24 @@
 <div class="apps">
   <div class="apps-added">
-    <div class="apps-added-app" *ngFor="let app of apps">
-      <img [src]="app.userLogo" class="apps-added-app-logo" alt="user logo" />
-      <span class="apps-added-app-name">
-        {{ app.name | mtoApiName }}
-      </span>
-      <span class="apps-added-app-user">{{ app.userLogin }}</span>
-      <mat-slide-toggle
-        (change)="onChangeToggle($event.checked, app.id)"
-        class="apps-added-app-switch"
-      ></mat-slide-toggle>
-    </div>
+    <mto-apps-element
+      (isConnectedValueChanged)="onConnectedToggle($event)"
+      [apps]="dropboxApps"
+    ></mto-apps-element>
+
+    <mto-apps-element
+      (isConnectedValueChanged)="onConnectedToggle($event)"
+      [apps]="soundcloudApps"
+    ></mto-apps-element>
+
+    <mto-apps-element
+      (isConnectedValueChanged)="onConnectedToggle($event)"
+      [apps]="spotifyApps"
+    ></mto-apps-element>
+
+    <mto-apps-element
+      (isConnectedValueChanged)="onConnectedToggle($event)"
+      [apps]="googleDriveApps"
+    ></mto-apps-element>
   </div>
   <div class="apps-add">
     <fa-icon

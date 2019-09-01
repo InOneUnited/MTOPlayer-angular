@@ -1,0 +1,15 @@
+@import 'mto-variables.scss';
+
+.apps-element {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 1fr min-content;
+  align-items: center;
+  justify-self: center;
+  grid-column-gap: 2rem;
+  width: 80%;
+}
+
+img {
+  height: 50px;
+}

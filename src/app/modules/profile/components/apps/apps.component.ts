@@ -16,7 +16,10 @@ import { AddAppDialogComponent } from './add-app/add-app.component';
   styleUrls: ['./apps.component.scss']
 })
 export class AppsComponent extends Unsubscribeable {
-  apps: MusicApp[];
+  dropboxApps: MusicApp[];
+  soundcloudApps: MusicApp[];
+  spotifyApps: MusicApp[];
+  googleDriveApps: MusicApp[];
 
   constructor(private store: Store<AppState>, public dialog: MatDialog) {
     super();
@@ -26,13 +29,23 @@ export class AppsComponent extends Unsubscribeable {
       .select(getCurrentMusicApps)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(musicApps => {
-        this.apps = musicApps;
+        this.dropboxApps = musicApps.filter(app => app.name === 'dropbox');
+        this.spotifyApps = musicApps.filter(app => app.name === 'spotify');
+        this.soundcloudApps = musicApps.filter(
+          app => app.name === 'soundcloud'
+        );
+        this.googleDriveApps = musicApps.filter(
+          app => app.name === 'google_drive'
+        );
       });
   }
 
-  onChangeToggle(toggleValue: boolean, appId: number): void {
+  onConnectedToggle(event: { isConnected: boolean; apiId: number }): void {
     this.store.dispatch(
-      updateIsConnected({ musicAppId: appId, isConnected: toggleValue })
+      updateIsConnected({
+        musicAppId: event.apiId,
+        isConnected: event.isConnected
+      })
     );
   }
 

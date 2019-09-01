@@ -1,0 +1,17 @@
+<ng-container *ngIf="!isMoreThanOne; else inList">
+  <div class="apps-element" *ngFor="let app of apps">
+    <img [src]="app.userLogo" class="apps-added-app-logo" alt="user logo" />
+    <span class="apps-added-app-name">
+      {{ app.name | mtoApiName }}
+    </span>
+    <span class="apps-added-app-user">{{ app.userLogin }}</span>
+    <mat-slide-toggle
+      (change)="onChangeToggle($event.checked, app.id)"
+      class="apps-added-app-switch"
+    ></mat-slide-toggle>
+  </div>
+</ng-container>
+
+<ng-template #inList>
+  <div>In list I am here</div>
+</ng-template>
