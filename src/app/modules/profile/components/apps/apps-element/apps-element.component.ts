@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { MusicApp } from '../../../../shared/model/music-app';
 
@@ -7,19 +7,26 @@ import { MusicApp } from '../../../../shared/model/music-app';
   templateUrl: './apps-element.component.html',
   styleUrls: ['./apps-element.component.scss']
 })
-export class AppsElementComponent {
+export class AppsElementComponent implements OnInit {
   @Input() apps: MusicApp[];
   @Output() isConnectedValueChanged = new EventEmitter<{
     isConnected: boolean;
     apiId: number;
   }>();
 
+  appName: string;
+  appLogo: string;
+
+  ngOnInit(): void {
+    this.appLogo = this.apps[0].userLogo;
+    this.appName = this.apps[0].name;
+  }
+
   onChangeToggle(toggleValue: boolean, id: number) {
     this.isConnectedValueChanged.emit({ isConnected: toggleValue, apiId: id });
   }
 
   get isMoreThanOne(): boolean {
-    console.log(this.apps.length);
     return this.apps.length > 1;
   }
 }

@@ -13,5 +13,24 @@
 </ng-container>
 
 <ng-template #inList>
-  <div>In list I am here</div>
+  <mat-accordion class="apps-accordion">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <img [src]="appLogo" />
+        </mat-panel-title>
+        <mat-panel-description>
+          <span>Your {{ appName | mtoApiName }} accounts</span>
+          <span>{{ appName | mtoApiName }}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="apps-accordion-element" *ngFor="let app of apps">
+        <span class="apps-accordion-app-user">{{ app.userLogin }}</span>
+        <mat-slide-toggle
+          (change)="onChangeToggle($event.checked, app.id)"
+          class="apps-accordion-app-switch"
+        ></mat-slide-toggle>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
 </ng-template>

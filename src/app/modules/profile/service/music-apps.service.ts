@@ -30,7 +30,13 @@ export class MusicAppsService {
       name: 'soundcloud',
       userLogin: 'fakemail@fake.eu',
       isConnected: false
-    })
+    }),
+    new MusicApp({
+      id: 4,
+      name: 'dropbox',
+      userLogin: 'dada@dodo.ee',
+      isConnected: false
+    }),
   ];
 
   constructor(private http: HttpClient) {}

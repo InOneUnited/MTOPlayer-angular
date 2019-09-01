@@ -13,3 +13,14 @@
 img {
   height: 50px;
 }
+
+.apps-accordion-element {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  justify-self: center;
+  grid-column-gap: 2rem;
+  width: 60%;
+}

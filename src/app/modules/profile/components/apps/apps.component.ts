@@ -16,10 +16,7 @@ import { AddAppDialogComponent } from './add-app/add-app.component';
   styleUrls: ['./apps.component.scss']
 })
 export class AppsComponent extends Unsubscribeable {
-  dropboxApps: MusicApp[];
-  soundcloudApps: MusicApp[];
-  spotifyApps: MusicApp[];
-  googleDriveApps: MusicApp[];
+  apps: MusicApp[];
 
   constructor(private store: Store<AppState>, public dialog: MatDialog) {
     super();
@@ -29,14 +26,7 @@ export class AppsComponent extends Unsubscribeable {
       .select(getCurrentMusicApps)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(musicApps => {
-        this.dropboxApps = musicApps.filter(app => app.name === 'dropbox');
-        this.spotifyApps = musicApps.filter(app => app.name === 'spotify');
-        this.soundcloudApps = musicApps.filter(
-          app => app.name === 'soundcloud'
-        );
-        this.googleDriveApps = musicApps.filter(
-          app => app.name === 'google_drive'
-        );
+        this.apps = musicApps;
       });
   }
 
@@ -60,5 +50,21 @@ export class AppsComponent extends Unsubscribeable {
         this.store.dispatch(addMusicApp({ musicApp: result }));
       }
     });
+  }
+
+  get dropboxApps() {
+    return this.apps.filter(app => app.name === 'dropbox');
+  }
+
+  get spotifyApps() {
+    return this.apps.filter(app => app.name === 'spotify');
+  }
+
+  get soundcloudApps() {
+    return this.apps.filter(app => app.name === 'soundcloud');
+  }
+
+  get googleDriveApps() {
+    return this.apps.filter(app => app.name === 'google_drive');
   }
 }

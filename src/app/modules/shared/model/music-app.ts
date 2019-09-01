@@ -1,5 +1,5 @@
 export enum ApiLogo {
-  dropbox = 'assets/img/logo/dropbox.jpg',
+  dropbox = 'assets/img/logo/dropbox.png',
   googleDrive = 'assets/img/logo/googledrive.png',
   soundCloud = 'assets/img/logo/soundcloud.png',
   spotify = 'assets/img/logo/spotify.png'
