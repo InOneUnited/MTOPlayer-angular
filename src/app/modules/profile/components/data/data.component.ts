@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
+
 import { AppState } from '../../../../store/app.state';
 import { Unsubscribeable } from '../../../shared/base/unsubscribeable';
 import { User } from '../../../shared/model/user';
@@ -22,11 +23,11 @@ export class DataComponent extends Unsubscribeable {
   constructor(private store: Store<AppState>, private fb: FormBuilder) {
     super();
     this.store.dispatch(fetchUser());
-    this.store.select(getCurrentUser)
+    this.store
+      .select(getCurrentUser)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(currentUser => {
         this.user = currentUser;
-        console.log('currentUser', currentUser);
       });
     this.form = this.createFormGroupFromUser();
   }
