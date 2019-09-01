@@ -42,11 +42,29 @@ export class MusicAppsEffects {
   deleteMusicApp$ = createEffect(() =>
     this.actions$.pipe(
       ofType(MusicAppsActions.deleteMusicApp),
-      mergeMap(({ musicApp }) => {
-        return this.musicAppsService.deleteMusicApp(musicApp).pipe(
+      mergeMap(({ musicAppId }) => {
+        return this.musicAppsService.deleteMusicApp(musicAppId).pipe(
           map(app => MusicAppsActions.deleteMusicAppSuccess({ musicApp: app })),
-          catchError(error => of(MusicAppsActions.addMusicAppFailure(error)))
+          catchError(error => of(MusicAppsActions.deleteMusicAppFailure(error)))
         );
+      })
+    )
+  );
+
+  updateMusicApp$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(MusicAppsActions.updateIsConnected),
+      mergeMap(({ musicAppId, isConnected }) => {
+        return this.musicAppsService
+          .updateIsConnected(musicAppId, isConnected)
+          .pipe(
+            map(app =>
+              MusicAppsActions.updateIsConnectedSuccess({ musicApp: app })
+            ),
+            catchError(error =>
+              of(MusicAppsActions.updateIsConnectedFailure(error))
+            )
+          );
       })
     )
   );

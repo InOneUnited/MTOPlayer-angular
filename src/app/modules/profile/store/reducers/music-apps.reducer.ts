@@ -8,6 +8,7 @@ const reducer = createReducer(
   on(
     MusicAppsActions.fetchMusicApps,
     MusicAppsActions.addMusicApp,
+    MusicAppsActions.updateIsConnected,
     MusicAppsActions.deleteMusicApp,
     state => ({
       ...state,
@@ -23,7 +24,8 @@ const reducer = createReducer(
 
   on(
     MusicAppsActions.addMusicAppSuccess,
-    MusicAppsActions.deleteMusicApp,
+    MusicAppsActions.updateIsConnectedSuccess,
+    MusicAppsActions.deleteMusicAppSuccess,
     (state, { musicApp }) => ({
       ...state,
       currentMusicApp: musicApp,
@@ -34,7 +36,8 @@ const reducer = createReducer(
   on(
     MusicAppsActions.fetchMusicAppsFailure,
     MusicAppsActions.addMusicAppFailure,
-    MusicAppsActions.deleteMusicAppSuccess,
+    MusicAppsActions.updateIsConnectedFailure,
+    MusicAppsActions.deleteMusicAppFailure,
     state => ({
       ...state,
       operationState: 'error'

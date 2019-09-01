@@ -31,7 +31,7 @@ export const addMusicAppFailure = createAction(
 
 export const deleteMusicApp = createAction(
   '[music apps] Delete music app',
-  props<{ musicApp: MusicApp }>()
+  props<{ musicAppId: number }>()
 );
 
 export const deleteMusicAppSuccess = createAction(
@@ -41,5 +41,20 @@ export const deleteMusicAppSuccess = createAction(
 
 export const deleteMusicAppFailure = createAction(
   '[music apps] Delete music app failure',
+  props<{ failure: any }>()
+);
+
+export const updateIsConnected = createAction(
+  '[music apps] Update music app is connected',
+  props<{ musicAppId: number; isConnected: boolean }>()
+);
+
+export const updateIsConnectedSuccess = createAction(
+  '[music apps] Update music app is connected success',
+  props<{ musicApp: MusicApp }>()
+);
+
+export const updateIsConnectedFailure = createAction(
+  '[music apps] Update music app is connected failure',
   props<{ failure: any }>()
 );

@@ -45,9 +45,18 @@ export class MusicAppsService {
     return of(musicApp);
   }
 
-  deleteMusicApp(musicApp: MusicApp) {
-    const index = this.musicApps.findIndex(app => app.id === musicApp.id);
+  deleteMusicApp(musicAppId: number) {
+    const index = this.musicApps.findIndex(app => app.id === musicAppId);
+    const musicApp = this.musicApps[index];
     this.musicApps.splice(index, 1);
+    return of(musicApp);
+  }
+
+  updateIsConnected(musicAppId: number, isConnected: boolean) {
+    const index = this.musicApps.findIndex(app => app.id === musicAppId);
+    this.musicApps[index].isConnected = isConnected;
+    const musicApp = this.musicApps[index];
+
     return of(musicApp);
   }
 }
