@@ -1,31 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+
 import { MusicApp } from '../../shared/model/music-app';
 
 @Injectable()
 export class MusicAppsService {
   musicApps: MusicApp[] = [
     new MusicApp({
-      id: 1,
+      id: 0,
       name: 'dropbox',
       userLogin: 'dodo@dudu.pl',
       isConnected: false
     }),
     new MusicApp({
-      id: 2,
+      id: 1,
       name: 'google_drive',
       userLogin: 'dodo@dudu.pl',
       isConnected: false
     }),
     new MusicApp({
-      id: 3,
+      id: 2,
       name: 'spotify',
       userLogin: 'kakafonia@co2.pl',
       isConnected: false
     }),
     new MusicApp({
-      id: 4,
+      id: 3,
       name: 'soundcloud',
       userLogin: 'fakemail@fake.eu',
       isConnected: false
@@ -34,8 +35,19 @@ export class MusicAppsService {
 
   constructor(private http: HttpClient) {}
 
-  fetchMusicApps() {
-    console.log('service');
+  fetchMusicApps(): Observable<MusicApp[]> {
     return of(this.musicApps);
+  }
+
+  addMusicApp(musicApp: MusicApp) {
+    musicApp.id = this.musicApps.length;
+    this.musicApps.push(musicApp);
+    return of(musicApp);
+  }
+
+  deleteMusicApp(musicApp: MusicApp) {
+    const index = this.musicApps.findIndex(app => app.id === musicApp.id);
+    this.musicApps.splice(index, 1);
+    return of(musicApp);
   }
 }
