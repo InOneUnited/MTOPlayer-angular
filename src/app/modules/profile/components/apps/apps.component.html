@@ -1,5 +1,5 @@
 <div class="apps">
-  <div class="apps-added">
+  <div class="apps-added" *ngIf="apps.length > 0">
     <mto-apps-element
       (isConnectedValueChanged)="onConnectedToggle($event)"
       [apps]="dropboxApps"
