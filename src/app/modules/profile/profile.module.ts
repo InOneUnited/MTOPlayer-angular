@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -29,6 +29,7 @@ import { profileFeatureKey, profileReducers } from './store/reducers/profile.red
   imports: [
     CommonModule,
     FontAwesomeModule,
+    FormsModule,
     MatDatepickerModule,
     MatDialogModule,
     MatExpansionModule,
