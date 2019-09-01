@@ -1,0 +1,21 @@
+// mto accordion expansion panel
+
+.apps-accordion .mat-expansion-panel-header-title,
+.apps-accordion .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.apps-accordion .mat-expansion-panel-header-description,
+.apps-accordion .mat-expansion-panel-header-title {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apps-accordion .mat-expansion-panel-body {
+  display: grid;
+  grid-row-gap: 2rem;
+}
+
+.apps-accordion .mat-expansion-indicator {
+  margin-bottom: 5px;
+}
