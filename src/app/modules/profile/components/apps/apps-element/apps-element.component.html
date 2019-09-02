@@ -9,6 +9,12 @@
       (change)="onChangeToggle($event.checked, app.id)"
       class="apps-added-app-switch"
     ></mat-slide-toggle>
+    <fa-icon
+      class="apps-remove-icon"
+      size="3x"
+      [icon]="['far', 'trash-alt']"
+      (click)="onClickRemove(app.id)"
+    ></fa-icon>
   </div>
 </ng-container>
 
@@ -25,6 +31,12 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="apps-accordion-element" *ngFor="let app of apps">
+        <fa-icon
+          class="apps-remove-icon"
+          size="2x"
+          [icon]="['far', 'trash-alt']"
+          (click)="onClickRemove(app.id)"
+        ></fa-icon>
         <span class="apps-accordion-app-user">{{ app.userLogin }}</span>
         <mat-slide-toggle
           (change)="onChangeToggle($event.checked, app.id)"

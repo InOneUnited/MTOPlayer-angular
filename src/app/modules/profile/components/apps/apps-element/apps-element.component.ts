@@ -13,6 +13,7 @@ export class AppsElementComponent implements OnInit {
     isConnected: boolean;
     apiId: number;
   }>();
+  @Output() remove = new EventEmitter<number>();
 
   appName: string;
   appLogo: string;
@@ -24,6 +25,10 @@ export class AppsElementComponent implements OnInit {
 
   onChangeToggle(toggleValue: boolean, id: number) {
     this.isConnectedValueChanged.emit({ isConnected: toggleValue, apiId: id });
+  }
+
+  onClickRemove(appId: number) {
+    this.remove.emit(appId);
   }
 
   get isMoreThanOne(): boolean {

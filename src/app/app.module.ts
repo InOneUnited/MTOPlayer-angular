@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
+import { faPlusSquare, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { EffectsModule } from '@ngrx/effects';
@@ -52,6 +52,6 @@ import { appReducers } from './store/app.reducers';
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faPlusSquare);
+    library.addIcons(faPlusSquare, faTrashAlt);
   }
 }

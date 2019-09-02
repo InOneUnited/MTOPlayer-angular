@@ -2,21 +2,25 @@
   <div class="apps-added" *ngIf="apps.length > 0">
     <mto-apps-element
       (isConnectedValueChanged)="onConnectedToggle($event)"
+      (remove)="onRemove($event)"
       [apps]="dropboxApps"
     ></mto-apps-element>
 
     <mto-apps-element
       (isConnectedValueChanged)="onConnectedToggle($event)"
+      (remove)="onRemove($event)"
       [apps]="soundcloudApps"
     ></mto-apps-element>
 
     <mto-apps-element
       (isConnectedValueChanged)="onConnectedToggle($event)"
+      (remove)="onRemove($event)"
       [apps]="spotifyApps"
     ></mto-apps-element>
 
     <mto-apps-element
       (isConnectedValueChanged)="onConnectedToggle($event)"
+      (remove)="onRemove($event)"
       [apps]="googleDriveApps"
     ></mto-apps-element>
   </div>
