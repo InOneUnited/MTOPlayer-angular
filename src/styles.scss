@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import './app/style/mto-variables.scss';
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@ng-select/ng-select/themes/material.theme.css';
+@import './app/style/3rd-party-components.scss';
 
 html,
 body,

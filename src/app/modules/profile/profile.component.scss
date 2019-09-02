@@ -4,10 +4,12 @@
   display: grid;
   grid-template-rows: max-content 1fr;
   height: 100%;
+  overflow-y: hidden;
 
   &-body {
     display: grid;
     grid-template-columns: 2fr 8fr;
+    overflow-y: hidden;
 
     &-menu {
       display: grid;
@@ -30,6 +32,10 @@
           background-color: $mto-dirty-pink;
         }
       }
+    }
+
+    &-content {
+      overflow-y: hidden;
     }
   }
 }

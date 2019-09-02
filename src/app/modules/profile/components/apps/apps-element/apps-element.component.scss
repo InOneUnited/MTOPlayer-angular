@@ -1,0 +1,41 @@
+@import 'mto-variables.scss';
+
+.apps-element {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 1fr min-content 1fr;
+  align-items: center;
+  justify-self: center;
+  grid-column-gap: 2rem;
+  width: 100%;
+
+  .apps-remove-icon {
+    justify-self: end;
+  }
+}
+
+img {
+  height: 50px;
+}
+
+.apps-accordion-element {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 4fr 1fr;
+  align-items: center;
+  justify-items: center;
+  justify-self: center;
+  grid-column-gap: 2rem;
+  width: 50%;
+
+  .apps-remove-icon {
+    cursor: pointer;
+    font-size: 10px;
+    justify-self: center;
+  }
+}
+
+.apps-remove-icon {
+  cursor: pointer;
+  font-size: 10px;
+}

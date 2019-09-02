@@ -1,0 +1,43 @@
+<div class="add-api">
+  <span class="add-api-title">Connect with your music application</span>
+  <div class="add-api-content">
+    <ng-select
+      [items]="apis"
+      [searchable]="false"
+      [(ngModel)]="chosenApi"
+      bindLabel="name"
+      placeholder="Select application"
+      autofocus
+    >
+      <ng-template ng-label-tmp let-item="item">
+        <img height="15" width="15" [src]="item.picture" />
+        {{ item.name | mtoApiName }}
+      </ng-template>
+      <ng-template ng-option-tmp let-item="item">
+        <img height="15" width="15" [src]="item.picture" />
+        {{ item.name | mtoApiName }}
+      </ng-template>
+    </ng-select>
+    <div *ngIf="chosenApi" class="add-api-content-data">
+      <mat-form-field class="add-api-content-data-login">
+        <input matInput placeholder="login" [(ngModel)]="login" required />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="add-api-footer">
+    <input
+      class="add-api-footer-cancel"
+      type="submit"
+      value="Cancel"
+      (click)="onNoClick()"
+    />
+    <input
+      class="add-api-footer-save"
+      [disabled]="!valid"
+      type="submit"
+      value="Save"
+      cdkFocusInitial
+      (click)="onSave()"
+    />
+  </div>
+</div>
