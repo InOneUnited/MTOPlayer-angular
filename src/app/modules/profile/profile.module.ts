@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -21,18 +22,19 @@ import { PasswordComponent } from './components/password/password.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { MusicAppsService } from './service/music-apps.service';
+import { PasswordDataService } from './service/password-data.service';
 import { UserService } from './service/user.service';
 import { MusicAppsEffects } from './store/effects/music-apps.effects';
+import { PasswordDataEffects } from './store/effects/password-data.effects';
 import { UserEffects } from './store/effects/user.effects';
 import { profileFeatureKey, profileReducers } from './store/reducers/profile.reducer';
-import { PasswordDataEffects } from './store/effects/password-data.effects';
-import { PasswordDataService } from './service/password-data.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FontAwesomeModule,
     FormsModule,
+    MatCheckboxModule,
     MatDatepickerModule,
     MatDialogModule,
     MatExpansionModule,
@@ -56,10 +58,10 @@ import { PasswordDataService } from './service/password-data.service';
   ],
   entryComponents: [
     AddAppDialogComponent,
+    AppsComponent,
     AppsElementComponent,
     DataComponent,
-    PasswordComponent,
-    AppsComponent
+    PasswordComponent
   ],
   providers: [],
   exports: []
@@ -68,7 +70,11 @@ export class ProfileModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ProfileModule,
-      providers: [UserService, MusicAppsService, PasswordDataService]
+      providers: [
+        MusicAppsService,
+        PasswordDataService,
+        UserService
+      ]
     };
   }
 }

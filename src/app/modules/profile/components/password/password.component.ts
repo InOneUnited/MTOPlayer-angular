@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { AppState } from 'src/app/store/app.state';
+import { Component, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { takeUntil } from 'rxjs/operators';
 import { Unsubscribeable } from 'src/app/modules/shared/base/unsubscribeable';
 import { PasswordData } from 'src/app/modules/shared/model/password-data';
-import { getCurrentPasswordData } from '../../store/selectors/password-data.selector';
+import { AppState } from 'src/app/store/app.state';
+
 import { fetchPasswordData } from '../../store/actions/password-data.actions';
-import { takeUntil } from 'rxjs/operators';
+import { getCurrentPasswordData } from '../../store/selectors/password-data.selector';
 
 @Component({
   selector: 'mto-password',
@@ -17,7 +18,7 @@ export class PasswordComponent extends Unsubscribeable {
   form: FormGroup;
   passwordData: PasswordData;
 
-  constructor(private store: Store<AppState>, private fb: FormBuilder) {
+  constructor(private store: Store<AppState>, private fb: FormBuilder, private el: ElementRef) {
     super();
     this.store.dispatch(fetchPasswordData());
     this.store
@@ -29,8 +30,12 @@ export class PasswordComponent extends Unsubscribeable {
       });
   }
 
-  onSave(){
-    
+  onChange(event) {
+    const input = event.source._elementRef.nativeElement.parentElement.parentElement.firstChild.getElementsByTagName('input')[0];
+    input.getAttribute('type') === 'text' ? input.setAttribute('type', 'password') : input.setAttribute('type', 'text');
+  }
+
+  onSave() {
   }
 
   private createFormGroupFromPasswordData(): FormGroup {
