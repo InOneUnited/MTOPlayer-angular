@@ -25,6 +25,8 @@ import { UserService } from './service/user.service';
 import { MusicAppsEffects } from './store/effects/music-apps.effects';
 import { UserEffects } from './store/effects/user.effects';
 import { profileFeatureKey, profileReducers } from './store/reducers/profile.reducer';
+import { PasswordDataEffects } from './store/effects/password-data.effects';
+import { PasswordDataService } from './service/password-data.service';
 
 @NgModule({
   imports: [
@@ -42,7 +44,7 @@ import { profileFeatureKey, profileReducers } from './store/reducers/profile.red
     ReactiveFormsModule,
     SharedModule,
     StoreModule.forFeature(profileFeatureKey, profileReducers),
-    EffectsModule.forFeature([UserEffects, MusicAppsEffects])
+    EffectsModule.forFeature([UserEffects, MusicAppsEffects, PasswordDataEffects])
   ],
   declarations: [
     AddAppDialogComponent,
@@ -66,7 +68,7 @@ export class ProfileModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ProfileModule,
-      providers: [UserService, MusicAppsService]
+      providers: [UserService, MusicAppsService, PasswordDataService]
     };
   }
 }
