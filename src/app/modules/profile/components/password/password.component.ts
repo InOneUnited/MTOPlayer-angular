@@ -25,11 +25,13 @@ export class PasswordComponent extends Unsubscribeable {
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(currentPasswordData => {
         this.passwordData = currentPasswordData;
-        console.log('password', this.passwordData);
+        this.form = this.createFormGroupFromPasswordData();
       });
   }
 
-  onSave(){}
+  onSave(){
+    
+  }
 
   private createFormGroupFromPasswordData(): FormGroup {
     return this.fb.group({
