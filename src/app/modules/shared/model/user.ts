@@ -18,8 +18,6 @@ export class User {
     birthday?: Date;
     joinDate?: Date;
   }) {
-    if (fields) {
-      Object.assign(this, fields);
-    }
+    Object.assign(this, fields);
   }
 }

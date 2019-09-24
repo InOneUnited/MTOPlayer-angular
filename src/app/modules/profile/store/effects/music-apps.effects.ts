@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { catchError, exhaustMap, map, mergeMap } from 'rxjs/operators';
 
 import { MusicAppsService } from '../../service/music-apps.service';
-import * as MusicAppsActions from '../actions/music-apps.actions';
+import { fetchMusicApps, fetchMusicAppsSuccess, fetchMusicAppsFailure, addMusicApp, addMusicAppSuccess, addMusicAppFailure, deleteMusicApp, deleteMusicAppSuccess, deleteMusicAppFailure, updateIsConnected, updateIsConnectedSuccess, updateIsConnectedFailure } from '../actions/music-apps.actions';
 
 @Injectable()
 export class MusicAppsEffects {
@@ -15,13 +15,13 @@ export class MusicAppsEffects {
 
   fetchMusicApps$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(MusicAppsActions.fetchMusicApps),
+      ofType(fetchMusicApps),
       exhaustMap(() => {
         return this.musicAppsService.fetchMusicApps().pipe(
           map(musicApps =>
-            MusicAppsActions.fetchMusicAppsSuccess({ musicApps })
+            fetchMusicAppsSuccess({ musicApps })
           ),
-          catchError(error => of(MusicAppsActions.fetchMusicAppsFailure(error)))
+          catchError(error => of(fetchMusicAppsFailure(error)))
         );
       })
     )
@@ -29,11 +29,11 @@ export class MusicAppsEffects {
 
   addMusicApp$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(MusicAppsActions.addMusicApp),
+      ofType(addMusicApp),
       mergeMap(({ musicApp }) => {
         return this.musicAppsService.addMusicApp(musicApp).pipe(
-          map(app => MusicAppsActions.addMusicAppSuccess({ musicApp: app })),
-          catchError(error => of(MusicAppsActions.addMusicAppFailure(error)))
+          map(app => addMusicAppSuccess({ musicApp: app })),
+          catchError(error => of(addMusicAppFailure(error)))
         );
       })
     )
@@ -41,11 +41,11 @@ export class MusicAppsEffects {
 
   deleteMusicApp$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(MusicAppsActions.deleteMusicApp),
+      ofType(deleteMusicApp),
       mergeMap(({ musicAppId }) => {
         return this.musicAppsService.deleteMusicApp(musicAppId).pipe(
-          map(app => MusicAppsActions.deleteMusicAppSuccess({ musicApp: app })),
-          catchError(error => of(MusicAppsActions.deleteMusicAppFailure(error)))
+          map(app => deleteMusicAppSuccess({ musicApp: app })),
+          catchError(error => of(deleteMusicAppFailure(error)))
         );
       })
     )
@@ -53,16 +53,16 @@ export class MusicAppsEffects {
 
   updateMusicApp$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(MusicAppsActions.updateIsConnected),
+      ofType(updateIsConnected),
       mergeMap(({ musicAppId, isConnected }) => {
         return this.musicAppsService
           .updateIsConnected(musicAppId, isConnected)
           .pipe(
             map(app =>
-              MusicAppsActions.updateIsConnectedSuccess({ musicApp: app })
+              updateIsConnectedSuccess({ musicApp: app })
             ),
             catchError(error =>
-              of(MusicAppsActions.updateIsConnectedFailure(error))
+              of(updateIsConnectedFailure(error))
             )
           );
       })

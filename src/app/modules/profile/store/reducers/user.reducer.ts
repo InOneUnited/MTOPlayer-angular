@@ -1,20 +1,20 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import * as UserActions from '../actions/user.actions';
 import { initialUserState, UserState } from '../states/user.state';
+import { fetchUserSuccess, fetchUserFailure, updateUserSuccess } from '../actions/user.actions';
 
 const reducer = createReducer(
   initialUserState,
-  on(UserActions.fetchUserSuccess, (state, { user }) => ({
+  on(fetchUserSuccess, (state, { user }) => ({
     ...state,
     currentUser: user
   })),
 
-  on(UserActions.fetchUserFailure, UserActions.fetchUserFailure, state => ({
+  on(fetchUserFailure, fetchUserFailure, state => ({
     ...state,
     operationState: 'error'
   })),
 
-  on(UserActions.updateUserSuccess, (state, { user }) => ({
+  on(updateUserSuccess, (state, { user }) => ({
     ...state,
     currentUser: user
   }))

@@ -26,9 +26,7 @@ export class MusicApp {
     userLogin?: string;
     isConnected?: boolean;
   }) {
-    if (fields) {
-      Object.assign(this, fields);
-    }
+    Object.assign(this, fields);
   }
 
   get userLogo(): ApiLogo {
