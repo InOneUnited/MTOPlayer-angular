@@ -2,12 +2,20 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+
 import { PasswordDataService } from '../../service/password-data.service';
-import { fetchPasswordDataSuccess, fetchPasswordDataFailure, fetchPasswordData, updatePasswordData, updatePasswordDataSuccess, updatePasswordDataFailure } from '../actions/password-data.actions';
+import {
+  fetchPasswordData,
+  fetchPasswordDataFailure,
+  fetchPasswordDataSuccess,
+  updatePasswordData,
+  updatePasswordDataFailure,
+  updatePasswordDataSuccess,
+} from '../actions/password-data.actions';
 
 @Injectable()
 export class PasswordDataEffects {
-  constructor(private actions$: Actions, private passwordDataService: PasswordDataService) {}
+  constructor(private actions$: Actions, private passwordDataService: PasswordDataService) { }
 
   fetchPasswordData$ = createEffect(() =>
     this.actions$.pipe(

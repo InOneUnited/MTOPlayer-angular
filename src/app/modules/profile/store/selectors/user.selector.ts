@@ -1,4 +1,5 @@
 import { createSelector } from '@ngrx/store';
+
 import { ProfileState } from '../states/profile.state';
 import { UserState } from '../states/user.state';
 import { getProfileState } from './profile.selector';
