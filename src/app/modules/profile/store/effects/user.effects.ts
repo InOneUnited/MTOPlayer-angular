@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { UserService } from '../../service/user.service';
-import * as UserActions from '../actions/user.actions';
+import { fetchUser, fetchUserSuccess, fetchUserFailure, updateUser, updateUserSuccess, updateUserFailure } from '../actions/user.actions';
 
 @Injectable()
 export class UserEffects {
@@ -11,11 +11,11 @@ export class UserEffects {
 
   fetchUser$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(UserActions.fetchUser),
+      ofType(fetchUser),
       switchMap(() => {
         return this.userService.fetchUser().pipe(
-          map(user => UserActions.fetchUserSuccess({ user })),
-          catchError(error => of(UserActions.fetchUserFailure(error)))
+          map(user => fetchUserSuccess({ user })),
+          catchError(error => of(fetchUserFailure(error)))
         );
       })
     )
@@ -23,14 +23,14 @@ export class UserEffects {
 
   updateUser$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(UserActions.updateUser),
+      ofType(updateUser),
       map(action => action.user),
       switchMap(user => {
         return this.userService.updateUser(user).pipe(
           map(updatedUser =>
-            UserActions.updateUserSuccess({ user: updatedUser })
+            updateUserSuccess({ user: updatedUser })
           ),
-          catchError(error => of(UserActions.updateUserFailure(error)))
+          catchError(error => of(updateUserFailure(error)))
         );
       })
     )

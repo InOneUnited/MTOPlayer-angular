@@ -1,31 +1,31 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
-import * as MusicAppsActions from '../actions/music-apps.actions';
 import { initialMusicAppsState, MusicAppsState } from '../states/music-apps.state';
+import { fetchMusicApps, addMusicApp, updateIsConnected, deleteMusicApp, fetchMusicAppsSuccess, addMusicAppSuccess, updateIsConnectedSuccess, deleteMusicAppSuccess, fetchMusicAppsFailure, addMusicAppFailure, updateIsConnectedFailure, deleteMusicAppFailure } from '../actions/music-apps.actions';
 
 const reducer = createReducer(
   initialMusicAppsState,
   on(
-    MusicAppsActions.fetchMusicApps,
-    MusicAppsActions.addMusicApp,
-    MusicAppsActions.updateIsConnected,
-    MusicAppsActions.deleteMusicApp,
+    fetchMusicApps,
+    addMusicApp,
+    updateIsConnected,
+    deleteMusicApp,
     state => ({
       ...state,
       operationState: 'busy'
     })
   ),
 
-  on(MusicAppsActions.fetchMusicAppsSuccess, (state, { musicApps }) => ({
+  on(fetchMusicAppsSuccess, (state, { musicApps }) => ({
     ...state,
     currentMusicApps: musicApps,
     operationState: 'success'
   })),
 
   on(
-    MusicAppsActions.addMusicAppSuccess,
-    MusicAppsActions.updateIsConnectedSuccess,
-    MusicAppsActions.deleteMusicAppSuccess,
+    addMusicAppSuccess,
+    updateIsConnectedSuccess,
+    deleteMusicAppSuccess,
     (state, { musicApp }) => ({
       ...state,
       currentMusicApp: musicApp,
@@ -34,10 +34,10 @@ const reducer = createReducer(
   ),
 
   on(
-    MusicAppsActions.fetchMusicAppsFailure,
-    MusicAppsActions.addMusicAppFailure,
-    MusicAppsActions.updateIsConnectedFailure,
-    MusicAppsActions.deleteMusicAppFailure,
+    fetchMusicAppsFailure,
+    addMusicAppFailure,
+    updateIsConnectedFailure,
+    deleteMusicAppFailure,
     state => ({
       ...state,
       operationState: 'error'

@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -21,8 +23,10 @@ import { PasswordComponent } from './components/password/password.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { MusicAppsService } from './service/music-apps.service';
+import { PasswordDataService } from './service/password-data.service';
 import { UserService } from './service/user.service';
 import { MusicAppsEffects } from './store/effects/music-apps.effects';
+import { PasswordDataEffects } from './store/effects/password-data.effects';
 import { UserEffects } from './store/effects/user.effects';
 import { profileFeatureKey, profileReducers } from './store/reducers/profile.reducer';
 
@@ -31,9 +35,11 @@ import { profileFeatureKey, profileReducers } from './store/reducers/profile.red
     CommonModule,
     FontAwesomeModule,
     FormsModule,
+    MatCheckboxModule,
     MatDatepickerModule,
     MatDialogModule,
     MatExpansionModule,
+    MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
     MatSlideToggleModule,
@@ -42,7 +48,7 @@ import { profileFeatureKey, profileReducers } from './store/reducers/profile.red
     ReactiveFormsModule,
     SharedModule,
     StoreModule.forFeature(profileFeatureKey, profileReducers),
-    EffectsModule.forFeature([UserEffects, MusicAppsEffects])
+    EffectsModule.forFeature([UserEffects, MusicAppsEffects, PasswordDataEffects])
   ],
   declarations: [
     AddAppDialogComponent,
@@ -54,10 +60,10 @@ import { profileFeatureKey, profileReducers } from './store/reducers/profile.red
   ],
   entryComponents: [
     AddAppDialogComponent,
+    AppsComponent,
     AppsElementComponent,
     DataComponent,
-    PasswordComponent,
-    AppsComponent
+    PasswordComponent
   ],
   providers: [],
   exports: []
@@ -66,7 +72,11 @@ export class ProfileModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ProfileModule,
-      providers: [UserService, MusicAppsService]
+      providers: [
+        MusicAppsService,
+        PasswordDataService,
+        UserService
+      ]
     };
   }
 }

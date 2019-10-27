@@ -19,3 +19,10 @@
 .apps-accordion .mat-expansion-indicator {
   margin-bottom: 5px;
 }
+
+// checkbox
+.password-checkbox.mat-checkbox {
+  label {
+    margin: 0px;
+  }
+}

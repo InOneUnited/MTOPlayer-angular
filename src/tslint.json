@@ -1,8 +1,22 @@
 {
   "extends": "../tslint.json",
   "rules": {
-    "directive-selector": [true, "attribute", "mto", "camelCase"],
-    "component-selector": [true, "element", "mto", "kebab-case"],
-    "no-submodule-imports": false
+    "directive-selector": [
+      true,
+      "attribute",
+      "mto",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "mto",
+      "kebab-case"
+    ],
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": [
+      true,
+      "dev"
+    ]
   }
 }

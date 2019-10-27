@@ -1,12 +1,14 @@
 @import 'mto-variables.scss';
 .profile-data {
   height: 100%;
+
   &-form {
     display: grid;
     grid-template-columns: 1fr 2fr 8fr 1fr;
     height: 100%;
     align-items: center;
   }
+  
   &-picture {
     grid-column-start: 2;
 
