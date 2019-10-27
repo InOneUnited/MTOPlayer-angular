@@ -29,7 +29,6 @@ export class PasswordComponent extends Unsubscribeable {
         this.passwordData = currentPasswordData;
       });
     this.form = this.createNewFormGroup();
-    console.log(this.form);
   }
 
   onChange(event) {
