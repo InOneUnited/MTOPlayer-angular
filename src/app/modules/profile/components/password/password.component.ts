@@ -1,12 +1,13 @@
 import { Component, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
 import { Unsubscribeable } from 'src/app/modules/shared/base/unsubscribeable';
 import { PasswordData } from 'src/app/modules/shared/model/password-data';
 import { AppState } from 'src/app/store/app.state';
 
-import { fetchPasswordData } from '../../store/actions/password-data.actions';
+import { forbiddenEqualNamesValidator } from '../../../shared/utils/validators';
+import { fetchPasswordData, updatePasswordData } from '../../store/actions/password-data.actions';
 import { getCurrentPasswordData } from '../../store/selectors/password-data.selector';
 
 @Component({
@@ -26,8 +27,9 @@ export class PasswordComponent extends Unsubscribeable {
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(currentPasswordData => {
         this.passwordData = currentPasswordData;
-        this.form = this.createFormGroupFromPasswordData();
       });
+    this.form = this.createNewFormGroup();
+    console.log(this.form);
   }
 
   onChange(event) {
@@ -36,13 +38,16 @@ export class PasswordComponent extends Unsubscribeable {
   }
 
   onSave() {
+    const newPassword = this.formToPasswordData();
+    this.store.dispatch(updatePasswordData({ passwordData: newPassword }));
   }
 
-  private createFormGroupFromPasswordData(): FormGroup {
+  private createNewFormGroup(): FormGroup {
     return this.fb.group({
-      email: [this.passwordData.email],
-      oldPassword: [this.passwordData.password],
-      newPassword: [],
+      oldPassword: ['', Validators.required],
+      newPassword: ['', Validators.required],
+    }, {
+      validator: forbiddenEqualNamesValidator('newPassword', 'oldPassword')
     });
   }
 
@@ -50,8 +55,8 @@ export class PasswordComponent extends Unsubscribeable {
     const formValue = this.form.value;
     return new PasswordData({
       ...this.passwordData,
-      email: formValue.firstName,
-      password: formValue.newPassword
+      oldPassword: formValue.oldPassword,
+      newPassword: formValue.newPassword,
     });
   }
 }
