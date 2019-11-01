@@ -1,7 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
-
-import { fetchUserFailure, fetchUserSuccess, updateUserSuccess } from '../actions/user.actions';
 import { initialUserState, UserState } from '../states/user.state';
+import { fetchUserSuccess, fetchUserFailure, updateUserSuccess } from '../actions/user.actions';
 
 const reducer = createReducer(
   initialUserState,
