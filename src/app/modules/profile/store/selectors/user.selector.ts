@@ -1,7 +1,13 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { UserState } from '../states/user.state';
+import { createSelector } from '@ngrx/store';
 
-export const getUserState = createFeatureSelector<UserState>('data');
+import { ProfileState } from '../states/profile.state';
+import { UserState } from '../states/user.state';
+import { getProfileState } from './profile.selector';
+
+export const getUserState = createSelector(
+  getProfileState,
+  (state: ProfileState) => state && state.userState
+);
 
 export const getCurrentUser = createSelector(
   getUserState,

@@ -8,14 +8,16 @@
 
   &-logo {
     height: 100%;
-    display: grid;
+    max-height: 50px;
+    display: inline-grid;
     grid-template-columns: min-content 1fr;
     grid-column-gap: 0.5rem;
     padding-left: 1rem;
 
     &-picture {
       height: 90%;
-      justify-self: center;
+      width: 50px;
+      justify-self: start;
       align-self: center;
       background-color: currentColor;
       border-radius: 50%;
@@ -25,6 +27,7 @@
       align-self: center;
       @include font-24;
       color: $mto-white;
+      justify-self: start;
     }
   }
 
@@ -58,5 +61,6 @@
 .picture {
   height: 80%;
   border-radius: 50%;
-  border: 2px solid green;
+  border: 2px solid $mto-green;
+  width: 45px;
 }

@@ -1,0 +1,48 @@
+<ng-container *ngIf="!isMoreThanOne; else inList">
+  <div class="apps-element" *ngFor="let app of apps">
+    <img [src]="app.userLogo" class="apps-added-app-logo" alt="user logo" />
+    <span class="apps-added-app-name">
+      {{ app.name | mtoApiName }}
+    </span>
+    <span class="apps-added-app-user">{{ app.userLogin }}</span>
+    <mat-slide-toggle
+      (change)="onChangeToggle($event.checked, app.id)"
+      class="apps-added-app-switch"
+    ></mat-slide-toggle>
+    <fa-icon
+      class="apps-remove-icon"
+      size="3x"
+      [icon]="['far', 'trash-alt']"
+      (click)="onClickRemove(app.id)"
+    ></fa-icon>
+  </div>
+</ng-container>
+
+<ng-template #inList>
+  <mat-accordion class="apps-accordion">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <img [src]="appLogo" />
+        </mat-panel-title>
+        <mat-panel-description>
+          <span>Your {{ appName | mtoApiName }} accounts</span>
+          <span>{{ appName | mtoApiName }}</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="apps-accordion-element" *ngFor="let app of apps">
+        <fa-icon
+          class="apps-remove-icon"
+          size="2x"
+          [icon]="['far', 'trash-alt']"
+          (click)="onClickRemove(app.id)"
+        ></fa-icon>
+        <span class="apps-accordion-app-user">{{ app.userLogin }}</span>
+        <mat-slide-toggle
+          (change)="onChangeToggle($event.checked, app.id)"
+          class="apps-accordion-app-switch"
+        ></mat-slide-toggle>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>
